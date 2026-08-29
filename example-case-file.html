@@ -49,12 +49,14 @@
 
   .lightbox{
     position:fixed; inset:0; z-index:1000; display:none;
-    align-items:center; justify-content:center; padding:36px;
+    justify-content:center; padding:60px 20px;
     background:rgba(6,11,9,0.94); cursor:zoom-out;
+    overflow-y:auto;
   }
   .lightbox.open{ display:flex; }
   .lightbox img{
-    display:block; max-width:94vw; max-height:92vh; width:auto; height:auto;
+    display:block; width:min(1500px, 92vw); max-width:none; height:auto;
+    margin:auto;
     box-shadow:0 30px 90px rgba(0,0,0,0.75), 0 0 0 1px rgba(233,225,201,0.1);
     cursor:default;
   }
