@@ -261,6 +261,29 @@
   }
   .result-section-header:first-of-type{margin-top:0;}
 
+  .occurrences-divider{
+    grid-column:1/-1;
+    max-width:760px;
+    margin:22px 0 4px;
+  }
+  .occurrences-divider h3{
+    font-family:'Space Mono', monospace;
+    font-size:11px;
+    font-weight:400;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--verdigris-dim);
+    border-bottom:1px solid var(--verdigris-dim);
+    padding-bottom:7px;
+    margin:0 0 10px;
+  }
+  .occurrences-divider p{
+    color:var(--fog-dim);
+    font-size:13.5px;
+    line-height:1.7;
+    margin:0;
+  }
+
   .fieldref-intro{
     grid-column:1/-1;
     max-width:760px;
@@ -736,6 +759,11 @@
     margin:2px 0 20px;
     font-style:italic;
   }
+  .chronicle-cta-row{
+    display:flex; flex-wrap:wrap; gap:10px; align-items:center;
+    margin:2px 0 20px;
+  }
+  .chronicle-cta-row .read-btn, .chronicle-cta-row .no-text-note{ margin:0; }
 
   /* ---------- Manuscript Reader ---------- */
   .reader-overlay{
@@ -1007,6 +1035,50 @@
     display:block; text-align:center; width:100%;
     margin:0;
   }
+
+  /* ---------- Excerpt Reader End / Case File CTA ---------- */
+  .ms-endstamp{ text-align:center; margin:46px 0 26px; }
+  .ms-endstamp-mark{
+    display:inline-block; border:3px double var(--rust); color:var(--rust);
+    padding:9px 24px; font-family:'Space Mono', monospace; font-weight:700;
+    font-size:13px; letter-spacing:0.14em; transform:rotate(-3deg);
+    opacity:0.85; mix-blend-mode:multiply;
+  }
+
+  .case-file-cta{
+    border:1px dashed var(--rust);
+    padding:16px 18px 18px;
+    margin:0 0 24px;
+    background:rgba(138,63,46,0.06);
+  }
+  .case-file-cta-head{
+    font-family:'Space Mono', monospace; font-size:10.5px;
+    letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--rust); margin:0 0 8px;
+  }
+  .case-file-cta-body{
+    font-size:13.5px; line-height:1.6; color:var(--ink-soft);
+    margin:0 0 14px; font-style:italic;
+  }
+  .case-file-cta-row{
+    display:flex; flex-wrap:wrap; gap:10px; margin-bottom:2px;
+  }
+  .case-file-cta-row .read-btn{ margin:0; }
+  .case-file-btn-secondary{
+    background:transparent; border:1px solid var(--rust); color:var(--rust);
+  }
+  .case-file-btn-secondary:hover{ background:rgba(138,63,46,0.12); color:var(--rust-bright); border-color:var(--rust-bright); }
+  .correspondent-note{
+    font-size:12.5px; line-height:1.55; color:var(--ink-soft); font-style:italic;
+    margin:12px 0 4px; padding-top:12px;
+    border-top:1px solid rgba(32,29,22,0.18);
+  }
+  .correspondent-example-link{
+    font-family:'Space Mono', monospace; font-size:11px;
+    letter-spacing:0.04em; color:var(--verdigris-dim);
+    text-decoration:underline; cursor:pointer; background:none; border:none; padding:0;
+  }
+  .correspondent-example-link:hover{ color:var(--verdigris); }
 </style>
 </head>
 <body>
@@ -1142,7 +1214,7 @@ const CALL_OF_CTHULHU_TEXT = [
 {type:'para', text:`My knowledge of the thing began in the winter of 1926-27 with the death of my great-uncle, George Gammell Angell, Professor Emeritus of Semitic Languages in Brown University, Providence, Rhode Island. Professor Angell was widely known as an authority on ancient inscriptions, and had frequently been resorted to by the heads of prominent museums; so that his passing at the age of ninety-two may be recalled by many. Locally, interest was intensified by the obscurity of the cause of death. The professor had been stricken whilst returning from the Newport boat; falling suddenly; as witnesses said, after having been jostled by a nautical-looking negro who had come from one of the queer dark courts on the precipitous hillside which formed a short cut from the waterfront to the deceased's home in Williams Street. Physicians were unable to find any visible disorder, but concluded after perplexed debate that some obscure lesion of the heart, induced by the brisk ascent of so steep a hill by so elderly a man, was responsible for the end. At the time I saw no reason to dissent from this dictum, but latterly I am inclined to wonder—and more than wonder.`},
 {type:'para', text:`As my great-uncle's heir and executor, for he died a childless widower, I was expected to go over his papers with some thoroughness; and for that purpose moved his entire set of files and boxes to my quarters in Boston. Much of the material which I correlated will be later published by the American Archaeological Society, but there was one box which I found exceedingly puzzling, and which I felt much averse from showing to other eyes. It had been locked and I did not find the key till it occurred to me to examine the personal ring which the professor carried in his pocket. Then, indeed, I succeeded in opening it, but when I did so seemed only to be confronted by a greater and more closely locked barrier. For what could be the meaning of the queer clay bas-relief and the disjointed jottings, ramblings, and cuttings which I found? Had my uncle, in his latter years become credulous of the most superficial impostures? I resolved to search out the eccentric sculptor responsible for this apparent disturbance of an old man's peace of mind.`},
 {type:'para', text:`The bas-relief was a rough rectangle less than an inch thick and about five by six inches in area; obviously of modern origin. Its designs, however, were far from modern in atmosphere and suggestion; for, although the vagaries of cubism and futurism are many and wild, they do not often reproduce that cryptic regularity which lurks in prehistoric writing. And writing of some kind the bulk of these designs seemed certainly to be; though my memory, despite much the papers and collections of my uncle, failed in any way to identify this particular species, or even hint at its remotest affiliations.`},
-{type:'note', text:`EXCERPT_BREAK: The chronicle continues through Thurston's investigation of a swamp cult in Louisiana and a diabolist sect in Greenland, both venerating the same nameless idol — before jumping ahead to the voyage that finally brings the horror into the light.`},
+{type:'note', text:`The chronicle continues through Thurston's investigation of a swamp cult in Louisiana and a diabolist sect in Greenland, both venerating the same nameless idol — before jumping ahead to the voyage that finally brings the horror into the light.`},
 {type:'heading', text:`PART III. — THE MADNESS FROM THE SEA (EXCERPT)`},
 {type:'para', text:`Johansen's voyage had begun just as he told it to the vice-admiralty. The Emma, in ballast, had cleared Auckland on February 20th, and had felt the full force of that earthquake-born tempest which must have heaved up from the sea-bottom the horrors that filled men's dreams. Once more under control, the ship was making good progress when held up by the Alert on March 22nd. Then, driven ahead by curiosity in their captured yacht under Johansen's command, the men sight a great stone pillar sticking out of the sea, and come upon a coastline of mingled mud, ooze, and weedy Cyclopean masonry which can be nothing less than the tangible substance of earth's supreme terror—the nightmare corpse-city of R'lyeh, that was built in measureless aeons behind history by the vast, loathsome shapes that seeped down from the dark stars.`},
 {type:'para', text:`Johansen and his men landed at a sloping mud-bank on this monstrous Acropolis, and clambered slipperily up over titan oozy blocks which could have been no mortal staircase. It was Rodriguez the Portuguese who climbed up the foot of the monolith and shouted of what he had found. The rest followed him, and looked curiously at the immense carved door with the now familiar squid-dragon bas-relief. As Wilcox would have said, the geometry of the place was all wrong.`},
@@ -1151,7 +1223,7 @@ const CALL_OF_CTHULHU_TEXT = [
 {type:'para', text:`The Thing cannot be described—there is no language for such abysms of shrieking and immemorial lunacy, such eldritch contradictions of all matter, force, and cosmic order. A mountain walked or stumbled. The Thing of the idols, the green, sticky spawn of the stars, had awaked to claim his own. The stars were right again, and what an age-old cult had failed to do by design, a band of innocent sailors had done by accident. After vigintillions of years great Cthulhu was loose again, and ravening for delight.`},
 {type:'para', text:`Three men were swept up by the flabby claws before anybody turned. So only Briden and Johansen reached the boat, and pulled desperately for the Alert as the mountainous monstrosity flopped down the slimy stones and hesitated, floundering at the edge of the water.`},
 {type:'para', text:`But Johansen had not given out yet. Knowing that the Thing could surely overtake the Alert until steam was fully up, he resolved on a desperate chance; and, setting the engine for full speed, ran lightning-like on deck and reversed the wheel. There was a mighty eddying and foaming in the noisome brine, and as the steam mounted higher and higher the brave Norwegian drove his vessel head on against the pursuing jelly which rose above the unclean froth like the stern of a daemon galleon. The awful squid-head with writhing feelers came nearly up to the bowsprit of the sturdy yacht, but Johansen drove on relentlessly. There was a bursting as of an exploding bladder, a slushy nastiness as of a cloven sunfish, a stench as of a thousand opened graves, and a sound that the chronicler could not put on paper. For an instant the ship was befouled by an acrid and blinding green cloud, and then there was only a venomous seething astern; where the scattered plasticity of that nameless sky-spawn was nebulously recombining in its hateful original form, whilst its distance widened every second as the Alert gained impetus from its mounting steam.`},
-{type:'note', text:`EXCERPT_ENDS: The full transcription resumes in a future update. Thurston's closing meditation — on Cthulhu's dreaming survival beneath the waves, and on his own dwindling odds of outliving what he now knows — completes the story.`}
+{type:'note', text:`The full transcription resumes in a future update. Thurston's closing meditation — on Cthulhu's dreaming survival beneath the waves, and on his own dwindling odds of outliving what he now knows — completes the story.`}
 ];
 const STORY_ART = {};
 const ENTITY_ART = {};
@@ -1428,12 +1500,13 @@ const PICKMANS_MODEL_TEXT = [
 {type:'para', text:`Why did I drop him? Don't be impatient. Wait till I ring for coffee. We've had enough of the other stuff, but I for one need something. No—it wasn't the paintings I saw in that place; though I'll swear they were enough to get him ostracized in nine-tenths of the homes and clubs of Boston, and I guess you won't wonder now why I have to steer clear of subways and cellars. It was—something I found in my coat the next morning. You know, the curled-up paper tacked to that frightful canvas in the cellar; the thing I thought was a photograph of some scene he meant to use as a background for that monster. That last scare had come while I was reaching to uncurl it, and it seems I had vacantly crumpled it into my pocket. But here's the coffee—take it black, Eliot, if you're wise.`},
 {type:'para', text:`Yes, that paper was the reason I dropped Pickman; Richard Upton Pickman, the greatest artist I have ever known—and the foulest being that ever leaped the bounds of life into the pits of myth and madness. Eliot—old Reid was right. He wasn't strictly human. Either he was born in strange shadow, or he'd found a way to unlock the forbidden gate. It's all the same now, for he's gone—back into the fabulous darkness he loved to haunt. Here, let's have the chandelier going.`},
 {type:'para', text:`Don't ask me to explain or even conjecture about what I burned. Don't ask me, either, what lay behind that mole-like scrambling Pickman was so keen to pass off as rats. There are secrets, you know, which might have come down from old Salem times, and Cotton Mather tells even stranger things. You know how damned lifelike Pickman's paintings were—how we all wondered where he got those faces.`},
-{type:'note', text:`CAPTION: A period illustration accompanying the original magazine printing carried the caption: "He had painted a monstrous being on that awful canvas."`},
+{type:'note', text:`A period illustration accompanying the original magazine printing carried the caption: "He had painted a monstrous being on that awful canvas."`},
 {type:'para', text:`Well—that paper wasn't a photograph of any background, after all. What it showed was simply the monstrous being he was painting on that awful canvas. It was the model he was using—and its background was merely the wall of the cellar studio in minute detail. But by God, Eliot, it was a photograph from life.`}
 ];
 const STORIES = [
   {
     id:"call-of-cthulhu",
+    sourceUrl:"https://www.hplovecraft.com/writings/texts/fiction/cc.aspx",
     title:"The Call of Cthulhu",
     yearWritten:"1926",
     yearPublished:"1928",
@@ -1441,6 +1514,12 @@ const STORIES = [
     characters:["cthulhu"],
     locations:["rlyeh"],
     synopsis:"A man sorts through his late granduncle's papers and finds three threads pulling toward the same abyss: a sculptor's fever-dream carving, a swamp cult raided by police in Louisiana, and a sailor's account of an island that should not exist rising from the Pacific. Piecing the threads together costs him his peace of mind and, eventually, his life.",
+    excerpt:[
+      `The most merciful thing in the world, I think, is the inability of the human mind to correlate all its contents. We live on a placid island of ignorance in the midst of black seas of infinity, and it was not meant that we should voyage far. The sciences, each straining in its own direction, have hitherto harmed us little; but some day the piecing together of dissociated knowledge will open up such terrifying vistas of reality, and of our frightful position therein, that we shall either go mad from the revelation or flee from the light into the peace and safety of a new dark age.`,
+      `Theosophists have guessed at the awesome grandeur of the cosmic cycle wherein our world and human race form transient incidents. They have hinted at strange survivals in terms which would freeze the blood if not masked by a bland optimism. But it is not from them that there came the single glimpse of forbidden eons which chills me when I think of it and maddens me when I dream of it. That glimpse, like all dread glimpses of truth, flashed out from an accidental piecing together of separated things—in this case an old newspaper item and the notes of a dead professor. I hope that no one else will accomplish this piecing out; certainly, if I live, I shall never knowingly supply a link in so hideous a chain. I think that the professor, too intended to keep silent regarding the part he knew, and that he would have destroyed his notes had not sudden death seized him.`,
+      `My knowledge of the thing began in the winter of 1926-27 with the death of my great-uncle, George Gammell Angell, Professor Emeritus of Semitic Languages in Brown University, Providence, Rhode Island. Professor Angell was widely known as an authority on ancient inscriptions, and had frequently been resorted to by the heads of prominent museums; so that his passing at the age of ninety-two may be recalled by many. Locally, interest was intensified by the obscurity of the cause of death. The professor had been stricken whilst returning from the Newport boat; falling suddenly; as witnesses said, after having been jostled by a nautical-looking negro who had come from one of the queer dark courts on the precipitous hillside which formed a short cut from the waterfront to the deceased's home in Williams Street. Physicians were unable to find any visible disorder, but concluded after perplexed debate that some obscure lesion of the heart, induced by the brisk ascent of so steep a hill by so elderly a man, was responsible for the end. At the time I saw no reason to dissent from this dictum, but latterly I am inclined to wonder—and more than wonder.`,
+      `As my great-uncle's heir and executor, for he died a childless widower, I was expected to go over his papers with some thoroughness; and for that purpose moved his entire set of files and boxes to my quarters in Boston. Much of the material which I correlated will be later published by the American Archaeological Society, but there was one box which I found exceedingly puzzling, and which I felt much averse from showing to other eyes. It had been locked and I did not find the key till it occurred to me to examine the personal ring which the professor carried in his pocket. Then, indeed, I succeeded in opening it, but when I did so seemed only to be confronted by a greater and more closely locked barrier. For what could be the meaning of the queer clay bas-relief and the disjointed jottings, ramblings, and cuttings which I found? Had my uncle, in his latter years become credulous of the most superficial impostures? I resolved to search out the eccentric sculptor responsible for this apparent disturbance of an old man's peace of mind.`
+    ],
     fullText: CALL_OF_CTHULHU_TEXT
   },
   {
@@ -1452,7 +1531,10 @@ const STORIES = [
     publication:"Weird Tales, Apr. 1929",
     characters:["yog-sothoth","wilbur-whateley"],
     locations:["dunwich"],
-    synopsis:"In a decaying Massachusetts hill town, a family with a bad reputation raises a son who grows unnaturally fast and keeps something unseen locked in the barn. When the boy's plan to open a door for his father is cut short, three professors from Miskatonic University are left to deal with what he leaves behind."
+    synopsis:"In a decaying Massachusetts hill town, a family with a bad reputation raises a son who grows unnaturally fast and keeps something unseen locked in the barn. When the boy's plan to open a door for his father is cut short, three professors from Miskatonic University are left to deal with what he leaves behind.",
+    excerpt:[
+      `When a traveller in north central Massachusetts takes the wrong fork at the junction of the Aylesbury pike just beyond Dean's Corners he comes upon a lonely and curious country. The ground gets higher, and the brier-bordered stone walls press closer and closer against the ruts of the dusty, curving road. The trees of the frequent forest belts seem too large, and the wild weeds, brambles, and grasses attain a luxuriance not often found in settled regions. At the same time the planted fields appear singularly few and barren; while the sparsely scattered houses wear a surprisingly uniform aspect of age, squalor, and dilapidation. Without knowing why, one hesitates to ask directions from the gnarled, solitary figures spied now and then on crumbling doorsteps or on the sloping, rock-strown meadows. Those figures are so silent and furtive that one feels somehow confronted by forbidden things, with which it would be better to have nothing to do. When a rise in the road brings the mountains in view above the deep woods, the feeling of strange uneasiness is increased. The summits are too rounded and symmetrical to give a sense of comfort and naturalness, and sometimes the sky silhouettes with especial clearness the queer circles of tall stone pillars with which most of them are crowned. Gorges and ravines of problematical depth intersect the way, and the crude wooden bridges always seem of dubious safety. When the road dips again there are stretches of marshland that one instinctively dislikes, and indeed almost fears at evening when unseen whippoorwills chatter and the fireflies come out in abnormal profusion to dance to the raucous, creepily insistent rhythms of stridently piping bull-frogs. The thin, shining line of the Miskatonic's upper reaches has an oddly serpent-like suggestion as it winds close to the feet of the domed hills among which it rises.`
+    ]
   },
   {
     id:"mountains-of-madness",
@@ -1507,7 +1589,13 @@ const STORIES = [
     publication:"Amazing Stories, Sept. 1927",
     characters:["the-colour"],
     locations:["blasted-heath"],
-    synopsis:"A meteorite lands on a New England farm and slowly poisons everything around it — crops, wells, animals, and eventually the family who lived there — with a colour that has no name and cannot be described. A surveyor scouting the site for a future reservoir pieces together why the locals call the place the 'blasted heath' and refuse to go near it."
+    synopsis:"A meteorite lands on a New England farm and slowly poisons everything around it — crops, wells, animals, and eventually the family who lived there — with a colour that has no name and cannot be described. A surveyor scouting the site for a future reservoir pieces together why the locals call the place the 'blasted heath' and refuse to go near it.",
+    excerpt:[
+      `West of Arkham the hills rise wild, and there are valleys with deep woods that no axe has ever cut. There are dark narrow glens where the trees slope fantastically, and where thin brooklets trickle without ever having caught the glint of sunlight. On the gentler slopes there are farms, ancient and rocky, with squat, moss-coated cottages brooding eternally over old New England secrets in the lee of great ledges; but these are all vacant now, the wide chimneys crumbling and the shingled sides bulging perilously beneath low gambrel roofs.`,
+      `The old folk have gone away, and foreigners do not like to live there. French-Canadians have tried it, Italians have tried it, and the Poles have come and departed. It is not because of anything that can be seen or heard or handled, but because of something that is imagined. The place is not good for the imagination, and does not bring restful dreams at night. It must be this which keeps the foreigners away, for old Ammi Pierce has never told them of anything he recalls from the strange days. Ammi, whose head has been a little queer for years, is the only one who still remains, or who ever talks of the strange days; and he dares to do this because his house is so near the open fields and the travelled roads around Arkham.`,
+      `There was once a road over the hills and through the valleys, that ran straight where the blasted heath is now; but people ceased to use it and a new road was laid curving far toward the south. Traces of the old one can still be found amidst the weeds of a returning wilderness, and some of them will doubtless linger even when half the hollows are flooded for the new reservoir. Then the dark woods will be cut down and the blasted heath will slumber far below blue waters whose surface will mirror the sky and ripple in the sun. And the secrets of the strange days will be one with the deep's secrets; one with the hidden lore of old ocean, and all the mystery of primal earth.`,
+      `When I went into the hills and vales to survey for the new reservoir they told me the place was evil. They told me this in Arkham, and because that is a very old town full of witch legends I thought the evil must be something which grandams had whispered to children through centuries. The name "blasted heath" seemed to me very odd and theatrical, and I wondered how it had come into the folklore of a Puritan people. Then I saw that dark westward tangle of glens and slopes for myself, and ceased to wonder at anything besides its own elder mystery. It was morning when I saw it, but shadow lurked always there. The trees grew too thickly, and their trunks were too big for any healthy New England wood. There was too much silence in the dim alleys between them, and the floor was too soft with the dank moss and mattings of infinite years of decay.`
+    ]
   },
   {
     id:"rats-in-the-walls",
@@ -1518,10 +1606,14 @@ const STORIES = [
     publication:"Weird Tales, Mar. 1924",
     characters:[],
     locations:["exham-priory"],
-    synopsis:"An American heir restores his ancestral English priory despite its grim reputation, only to hear phantom rats scurrying inside the walls each night. Excavating beneath the foundation uncovers a subterranean world that explains, in the worst possible way, exactly what his family line has been hiding for centuries."
+    synopsis:"An American heir restores his ancestral English priory despite its grim reputation, only to hear phantom rats scurrying inside the walls each night. Excavating beneath the foundation uncovers a subterranean world that explains, in the worst possible way, exactly what his family line has been hiding for centuries.",
+    excerpt:[
+      `On July 16, 1923, I moved into Exham Priory after the last workman had finished his labours. The restoration had been a stupendous task, for little had remained of the deserted pile but a shell-like ruin; yet because it had been the seat of my ancestors I let no expense deter me. The place had not been inhabited since the reign of James the First, when a tragedy of intensely hideous, though largely unexplained, nature had struck down the master, five of his children, and several servants; and driven forth under a cloud of suspicion and terror the third son, my lineal progenitor and the only survivor of the abhorred line. With this sole heir denounced as a murderer, the estate had reverted to the crown, nor had the accused man made any attempt to exculpate himself or regain his property. Shaken by some horror greater than that of conscience or the law, and expressing only a frantic wish to exclude the ancient edifice from his sight and memory, Walter de la Poer, eleventh Baron Exham, fled to Virginia and there founded the family which by the next century had become known as Delapore. Exham Priory had remained untenanted, though later allotted to the estates of the Norrys family and much studied because of its peculiarly composite architecture; an architecture involving Gothic towers resting on a Saxon or Romanesque substructure, whose foundation in turn was of a still earlier order or blend of orders—Roman, and even Druidic or native Cymric, if legends speak truly. This foundation was a very singular thing, being merged on one side with the solid limestone of the precipice from whose brink the priory overlooked a desolate valley three miles west of the village of Anchester. Architects and antiquarians loved to examine this strange relic of forgotten centuries, but the country folk hated it. They had hated it hundreds of years before, when my ancestors lived there, and they hated it now, with the moss and mould of abandonment on it. I had not been a day in Anchester before I knew I came of an accursed house. And this week workmen have blown up Exham Priory, and are busy obliterating the traces of its foundations.`
+    ]
   },
   {
     id:"pickmans-model",
+    sourceUrl:"https://www.hplovecraft.com/writings/texts/fiction/pm.aspx",
     title:"Pickman's Model",
     yearWritten:"1926",
     yearPublished:"1927",
@@ -1529,6 +1621,13 @@ const STORIES = [
     characters:["ghouls","pickman"],
     locations:["pickmans-studio"],
     synopsis:"A Boston painter recounts why he abruptly quit the art world after visiting a colleague's secret studio in the North End. The colleague's paintings of ghoulish creatures were disturbingly well observed for works of pure imagination — and a photograph left behind explains exactly why.",
+    excerpt:[
+      `You needn't think I'm crazy, Eliot—plenty of others have queerer prejudices than this. Why don't you laugh at Oliver's grandfather, who won't ride in a motor? If I don't like that damned subway, it's my own business; and we got here more quickly anyhow in the taxi. We'd have had to walk up the hill from Park Street if we'd taken the car.`,
+      `I know I'm more nervous than I was when you saw me last year, but you don't need to hold a clinic over it. There's plenty of reason, God knows, and I fancy I'm lucky to be sane at all. Why the third degree? You didn't use to be so inquisitive.`,
+      `Well, if you must hear it, I don't know why you shouldn't. Maybe you ought to, anyhow, for you kept writing me like a grieved parent when you heard I'd begun to cut the Art Club and keep away from Pickman. Now that he's disappeared I go around to the club once in a while, but my nerves aren't what they were.`,
+      `No, I don't know what's become of Pickman, and I don't like to guess. You might have surmised I had some inside information when I dropped him—and that's why I don't want to think where he's gone. Let the police find what they can—it won't be much, judging from the fact that they don't know yet of the old North End place he hired under the name of Peters. I'm not sure that I could find it again myself—not that I'd ever try, even in broad daylight! Yes, I do know, or am afraid I know, why he maintained it. I'm coming to that. And I think you'll understand before I'm through why I don't tell the police. They would ask me to guide them, but I couldn't go back there even if I knew the way. There was something there—and now I can't use the subway or (and you may as well have your laugh at this, too) go down into cellars any more.`,
+      `I should think you'd have known I didn't drop Pickman for the same silly reasons that fussy old women like Dr. Reid or Joe Minot or Bosworth did. Morbid art doesn't shock me, and when a man has the genius Pickman had I feel it an honor to know him, no matter what direction his work takes. Boston never had a greater painter than Richard Upton Pickman. I said it at first and I say it still, and I never swerved an inch, either, when he showed that Ghoul Feeding. That, you remember, was when Minot cut him.`
+    ],
     fullText: PICKMANS_MODEL_TEXT
   },
   {
@@ -1540,7 +1639,13 @@ const STORIES = [
     publication:"The National Amateur, Mar. 1922",
     characters:[],
     locations:["rue-dauseil"],
-    synopsis:"A student renting a cheap garret room becomes fascinated by his mute upstairs neighbor, a viol player whose late-night music grows steadily wilder and more desperate. When he finally intrudes during one of these sessions, he discovers the old man isn't performing for an audience — he's holding something back with his playing, out past the one window that shouldn't show what it shows."
+    synopsis:"A student renting a cheap garret room becomes fascinated by his mute upstairs neighbor, a viol player whose late-night music grows steadily wilder and more desperate. When he finally intrudes during one of these sessions, he discovers the old man isn't performing for an audience — he's holding something back with his playing, out past the one window that shouldn't show what it shows.",
+    excerpt:[
+      `I have examined maps of the city with the greatest care, yet have never again found the Rue d'Auseil. These maps have not been modern maps alone, for I know that names change. I have, on the contrary, delved deeply into all the antiquities of the place; and have personally explored every region, of whatever name, which could possibly answer to the street I knew as the Rue d'Auseil. But despite all I have done it remains an humiliating fact that I cannot find the house, the street, or even the locality, where, during the last months of my impoverished life as a student of metaphysics at the university, I heard the music of Erich Zann.`,
+      `That my memory is broken, I do not wonder; for my health, physical and mental, was gravely disturbed throughout the period of my residence in the Rue d'Auseil, and I recall that I took none of my few acquaintances there. But that I cannot find the place again is both singular and perplexing; for it was within a half-hour's walk of the university and was distinguished by peculiarities which could hardly be forgotten by anyone who had been there. I have never met a person who has seen the Rue d'Auseil.`,
+      `The Rue d'Auseil lay across a dark river bordered by precipitous brick blear-windowed warehouses and spanned by a ponderous bridge of dark stone. It was always shadowy along that river, as if the smoke of neighbouring factories shut out the sun perpetually. The river was also odorous with evil stenches which I have never smelled elsewhere, and which may some day help me to find it, since I should recognise them at once. Beyond the bridge were narrow cobbled streets with rails; and then came the ascent, at first gradual, but incredibly steep as the Rue d'Auseil was reached.`,
+      `I have never seen another street as narrow and steep as the Rue d'Auseil. It was almost a cliff, closed to all vehicles, consisting in several places of flights of steps, and ending at the top in a lofty ivied wall. Its paving was irregular, sometimes stone slabs, sometimes cobblestones, and sometimes bare earth with struggling greenish-grey vegetation. The houses were tall, peaked-roofed, incredibly old, and crazily leaning backward, forward, and sidewise. Occasionally an opposite pair, both leaning forward, almost met across the street like an arch; and certainly they kept most of the light from the ground below. There were a few overhead bridges from house to house across the street.`
+    ]
   },
   {
     id:"statement-of-randolph-carter",
@@ -1551,7 +1656,11 @@ const STORIES = [
     publication:"The Vagrant, No. 13, Nov. 1920",
     characters:["randolph-carter"],
     locations:["the-unnamed-tomb"],
-    synopsis:"Randolph Carter gives police his account of the night his friend Harley Warren descended alone into an ancient tomb, staying in telephone contact from above ground. The connection holds just long enough for Carter to hear what happened to Warren below — and to never be able to explain it convincingly to anyone again."
+    synopsis:"Randolph Carter gives police his account of the night his friend Harley Warren descended alone into an ancient tomb, staying in telephone contact from above ground. The connection holds just long enough for Carter to hear what happened to Warren below — and to never be able to explain it convincingly to anyone again.",
+    excerpt:[
+      `I repeat to you, gentlemen, that your inquisition is fruitless. Detain me here forever if you will; confine or execute me if you must have a victim to propitiate the illusion you call justice; but I can say no more than I have said already. Everything that I can remember, I have told with perfect candour. Nothing has been distorted or concealed, and if anything remains vague, it is only because of the dark cloud which has come over my mind—that cloud and the nebulous nature of the horrors which brought it upon me.`,
+      `Again I say, I do not know what has become of Harley Warren; though I think—almost hope—that he is in peaceful oblivion, if there be anywhere so blessed a thing. It is true that I have for five years been his closest friend, and a partial sharer of his terrible researches into the unknown. I will not deny, though my memory is uncertain and indistinct, that this witness of yours may have seen us together as he says, on the Gainesville pike, walking toward Big Cypress Swamp, at half past eleven on that awful night. That we bore electric lanterns, spades, and a curious coil of wire with attached instruments, I will even affirm; for these things all played a part in the single hideous scene which remains burned into my shaken recollection. But of what followed, and of the reason I was found alone and dazed on the edge of the swamp next morning, I must insist that I know nothing save what I have told you over and over again. You say to me that there is nothing in the swamp or near it which could form the setting of that frightful episode. I reply that I know nothing beyond what I saw. Vision or nightmare it may have been—vision or nightmare I fervently hope it was—yet it is all that my mind retains of what took place in those shocking hours after we left the sight of men.`
+    ]
   },
   {
     id:"the-festival",
@@ -1562,7 +1671,12 @@ const STORIES = [
     publication:"Weird Tales, Jan. 1925",
     characters:["ghouls"],
     locations:["kingsport"],
-    synopsis:"A man returns to the ancestral Massachusetts town of his forefathers to take part in a Yuletide rite he's obligated to attend once a generation. The townsfolk who lead him underground for the ceremony are welcoming enough, right up until he sees clearly what they — and the thing they ride to get there — actually are."
+    synopsis:"A man returns to the ancestral Massachusetts town of his forefathers to take part in a Yuletide rite he's obligated to attend once a generation. The townsfolk who lead him underground for the ceremony are welcoming enough, right up until he sees clearly what they — and the thing they ride to get there — actually are.",
+    excerpt:[
+      `I was far from home, and the spell of the eastern sea was upon me. In the twilight I heard it pounding on the rocks, and I knew it lay just over the hill where the twisting willows writhed against the clearing sky and the first stars of evening. And because my fathers had called me to the old town beyond, I pushed on through the shallow, new-fallen snow along the road that soared lonely up to where Aldebaran twinkled among the trees; on toward the very ancient town I had never seen but often dreamed of.`,
+      `It was the Yuletide, that men call Christmas though they know in their hearts it is older than Bethlehem and Babylon, older than Memphis and mankind. It was the Yuletide, and I had come at last to the ancient sea town where my people had dwelt and kept festival in the elder time when festival was forbidden; where also they had commanded their sons to keep festival once every century, that the memory of primal secrets might not be forgotten. Mine were an old people, and were old even when this land was settled three hundred years before. And they were strange, because they had come as dark furtive folk from opiate southern gardens of orchids, and spoken another tongue before they learnt the tongue of the blue-eyed fishers. And now they were scattered, and shared only the rituals of mysteries that none living could understand. I was the only one who came back that night to the old fishing town as legend bade, for only the poor and the lonely remember.`,
+      `Then beyond the hill's crest I saw Kingsport outspread frostily in the gloaming; snowy Kingsport with its ancient vanes and steeples, ridgepoles and chimney-pots, wharves and small bridges, willow-trees and graveyards; endless labyrinths of steep, narrow, crooked streets, and dizzy church-crowned central peak that time durst not touch; ceaseless mazes of colonial houses piled and scattered at all angles and levels like a child's disordered blocks; antiquity hovering on grey wings over winter-whitened gables and gambrel roofs; fanlights and small-paned windows one by one gleaming out in the cold dusk to join Orion and the archaic stars. And against the rotting wharves the sea pounded; the secretive, immemorial sea out of which the people had come in the elder time.`
+    ]
   },
   {
     id:"dreams-in-witch-house",
@@ -1584,7 +1698,10 @@ const STORIES = [
     publication:"Home Brew, Feb.–Jul. 1922 (six installments)",
     characters:["herbert-west","reanimated-dead"],
     locations:["miskatonic-med-school"],
-    synopsis:"A brilliant, morally unbothered medical student spends years perfecting a reagent that can restart a corpse — provided the body is fresh enough and the process is followed exactly. His old classmate narrates a string of experiments that go wrong in increasingly specific, increasingly personal ways, right up to a final case West can't walk away from."
+    synopsis:"A brilliant, morally unbothered medical student spends years perfecting a reagent that can restart a corpse — provided the body is fresh enough and the process is followed exactly. His old classmate narrates a string of experiments that go wrong in increasingly specific, increasingly personal ways, right up to a final case West can't walk away from.",
+    excerpt:[
+      `Of Herbert West, who was my friend in college and in after life, I can speak only with extreme terror. This terror is not due altogether to the sinister manner of his recent disappearance, but was engendered by the whole nature of his life-work, and first gained its acute form more than seventeen years ago, when we were in the third year of our course at the Miskatonic University Medical School in Arkham. While he was with me, the wonder and diabolism of his experiments fascinated me utterly, and I was his closest companion. Now that he is gone and the spell is broken, the actual fear is greater. Memories and possibilities are ever more hideous than realities. The first horrible incident of our acquaintance was the greatest shock I ever experienced, and it is only with reluctance that I repeat it. As I have said, it happened when we were in the medical school, where West had already made himself notorious through his wild theories on the nature of death and the possibility of overcoming it artificially. His views, which were widely ridiculed by the faculty and his fellow-students, hinged on the essentially mechanistic nature of life; and concerned means for operating the organic machinery of mankind by calculated chemical action after the failure of natural processes. In his experiments with various animating solutions he had killed and treated immense numbers of rabbits, guinea-pigs, cats, dogs, and monkeys, till he had become the prime nuisance of the college. Several times he had actually obtained signs of life in animals supposedly dead; in many cases violent signs; but he soon saw that the perfection of this process, if indeed possible, would necessarily involve a lifetime of research. It likewise became clear that, since the same solution never worked alike on different organic species, he would require human subjects for further and more specialised progress. It was here that he first came into conflict with the college authorities, and was debarred from future experiments by no less a dignitary than the dean of the medical school himself—the learned and benevolent Dr. Allan Halsey, whose work in behalf of the stricken is recalled by every old resident of Arkham. I had always been exceptionally tolerant of West's pursuits, and we frequently discussed his theories, whose ramifications and corollaries were almost infinite.`
+    ]
   },
   {
     id:"thing-on-doorstep",
@@ -1617,7 +1734,12 @@ const STORIES = [
     publication:"Tales of Magic and Mystery, Mar. 1928",
     characters:["dr-munoz"],
     locations:["w14-rooming-house"],
-    synopsis:"A boarder in a New York rooming house strikes up an odd friendship with the reclusive physician upstairs, whose apartment is kept unnervingly cold at all times by a refrigeration rig of his own design. When a summer heat wave knocks out his cooling system, the reason for it becomes impossible to keep discreet any longer."
+    synopsis:"A boarder in a New York rooming house strikes up an odd friendship with the reclusive physician upstairs, whose apartment is kept unnervingly cold at all times by a refrigeration rig of his own design. When a summer heat wave knocks out his cooling system, the reason for it becomes impossible to keep discreet any longer.",
+    excerpt:[
+      `You ask me to explain why I am afraid of a draught of cool air; why I shiver more than others upon entering a cold room, and seem nauseated and repelled when the chill of evening creeps through the heat of a mild autumn day. There are those who say I respond to cold as others do to a bad odour, and I am the last to deny the impression. What I will do is to relate the most horrible circumstance I ever encountered, and leave it to you to judge whether or not this forms a suitable explanation of my peculiarity.`,
+      `It is a mistake to fancy that horror is associated inextricably with darkness, silence, and solitude. I found it in the glare of mid-afternoon, in the clangour of a metropolis, and in the teeming midst of a shabby and commonplace rooming-house with a prosaic landlady and two stalwart men by my side. In the spring of 1923 I had secured some dreary and unprofitable magazine work in the city of New York; and being unable to pay any substantial rent, began drifting from one cheap boarding establishment to another in search of a room which might combine the qualities of decent cleanliness, endurable furnishings, and very reasonable price. It soon developed that I had only a choice between different evils, but after a time I came upon a house in West Fourteenth Street which disgusted me much less than the others I had sampled.`,
+      `The place was a four-story mansion of brownstone, dating apparently from the late forties, and fitted with woodwork and marble whose stained and sullied splendour argued a descent from high levels of tasteful opulence. In the rooms, large and lofty, and decorated with impossible paper and ridiculously ornate stucco cornices, there lingered a depressing mustiness and hint of obscure cookery; but the floors were clean, the linen tolerably regular, and the hot water not too often cold or turned off, so that I came to regard it as at least a bearable place to hibernate till one might really live again. The landlady, a slatternly, almost bearded Spanish woman named Herrero, did not annoy me with gossip or with criticisms of the late-burning electric light in my third-floor front hall room; and my fellow-lodgers were as quiet and uncommunicative as one might desire, being mostly Spaniards a little above the coarsest and crudest grade. Only the din of street cars in the thoroughfare below proved a serious annoyance.`
+    ]
   },
   {
     id:"terrible-old-man",
@@ -1628,7 +1750,11 @@ const STORIES = [
     publication:"The Tryout, Jul. 1921",
     characters:[],
     locations:["kingsport"],
-    synopsis:"Three small-time crooks target a strange, ancient hermit rumored to keep his fortune in gold and silver coin inside his decaying house, dismissing the local talk about the odd bottled pendulums he keeps talking to on his porch. The town watches the house that night and draws its own quiet conclusions the next morning."
+    synopsis:"Three small-time crooks target a strange, ancient hermit rumored to keep his fortune in gold and silver coin inside his decaying house, dismissing the local talk about the odd bottled pendulums he keeps talking to on his porch. The town watches the house that night and draws its own quiet conclusions the next morning.",
+    excerpt:[
+      `It was the design of Angelo Ricci and Joe Czanek and Manuel Silva to call on the Terrible Old Man. This old man dwells all alone in a very ancient house on Water Street near the sea, and is reputed to be both exceedingly rich and exceedingly feeble; which forms a situation very attractive to men of the profession of Messrs. Ricci, Czanek, and Silva, for that profession was nothing less dignified than robbery.`,
+      `The inhabitants of Kingsport say and think many things about the Terrible Old Man which generally keep him safe from the attention of gentlemen like Mr. Ricci and his colleagues, despite the almost certain fact that he hides a fortune of indefinite magnitude somewhere about his musty and venerable abode. He is, in truth, a very strange person, believed to have been a captain of East India clipper ships in his day; so old that no one can remember when he was young, and so taciturn that few know his real name. Among the gnarled trees in the front yard of his aged and neglected place he maintains a strange collection of large stones, oddly grouped and painted so that they resemble the idols in some obscure Eastern temple. This collection frightens away most of the small boys who love to taunt the Terrible Old Man about his long white hair and beard, or to break the small paned windows of his dwelling with wicked missiles; but there are other things which frighten the older and more curious folk who sometimes steal up to the house to peer in through the dusty panes. These folk say that on a table in a bare room on the ground floor are many peculiar bottles, in each a small piece of lead suspended pendulum-wise from a string. And they say that the Terrible Old Man talks to these bottles, addressing them by such names as Jack, Scar-Face, Long Tom, Spanish Joe, Peters, and Mate Ellis, and that whenever he speaks to a bottle the little lead pendulum within makes certain definite vibrations as if in answer. Those who have watched the tall, lean, Terrible Old Man in these peculiar conversations, do not watch him again. But Angelo Ricci and Joe Czanek and Manuel Silva were not of Kingsport blood; they were of that new and heterogeneous alien stock which lies outside the charmed circle of New England life and traditions, and they saw in the Terrible Old Man merely a tottering, almost helpless greybeard, who could not walk without the aid of his knotted cane, and whose thin, weak hands shook pitifully. They were really quite sorry in their way for the lonely, unpopular old fellow, whom everybody shunned, and at whom all the dogs barked singularly. But business is business, and to a robber whose soul is in his profession, there is a lure and a challenge about a very old and very feeble man who has no account at the bank, and who pays for his few necessities at the village store with Spanish gold and silver minted two centuries ago.`
+    ]
   },
   {
     id:"nameless-city",
@@ -1639,7 +1765,11 @@ const STORIES = [
     publication:"The Wolverine, Nov. 1921",
     characters:["nameless-city-reptiles"],
     locations:["empty-quarter-city"],
-    synopsis:"An explorer alone in the Arabian desert finds a city older than any human civilization, its low corridors and reptile-scaled murals built to a scale that fits nothing walking on two legs. Deeper passages hint that its builders aren't as extinct as their crumbling architecture would suggest, and that the desert itself may be a lid rather than a grave."
+    synopsis:"An explorer alone in the Arabian desert finds a city older than any human civilization, its low corridors and reptile-scaled murals built to a scale that fits nothing walking on two legs. Deeper passages hint that its builders aren't as extinct as their crumbling architecture would suggest, and that the desert itself may be a lid rather than a grave.",
+    excerpt:[
+      `When I drew nigh the nameless city I knew it was accursed. I was travelling in a parched and terrible valley under the moon, and afar I saw it protruding uncannily above the sands as parts of a corpse may protrude from an ill-made grave. Fear spoke from the age-worn stones of this hoary survivor of the deluge, this great-grandmother of the eldest pyramid; and a viewless aura repelled me and bade me retreat from antique and sinister secrets that no man should see, and no man else had ever dared to see.`,
+      `Remote in the desert of Araby lies the nameless city, crumbling and inarticulate, its low walls nearly hidden by the sands of uncounted ages. It must have been thus before the first stones of Memphis were laid, and while the bricks of Babylon were yet unbaked. There is no legend so old as to give it a name, or to recall that it was ever alive; but it is told of in whispers around campfires and muttered about by grandams in the tents of sheiks, so that all the tribes shun it without wholly knowing why. It was of this place that Abdul Alhazred the mad poet dreamed on the night before he sang his unexplainable couplet: "That is not dead which can eternal lie, And with strange aeons even death may die." I should have known that the Arabs had good reason for shunning the nameless city, the city told of in strange tales but seen by no living man, yet I defied them and went into the untroden waste with my camel. I alone have seen it, and that is why no other face bears such hideous lines of fear as mine; why no other man shivers so horribly when the night-wind rattles the windows. When I came upon it in the ghastly stillness of unending sleep it looked at me, chilly from the rays of a cold moon amidst the desert's heat. And as I returned its look I forgot my triumph at finding it, and stopped still with my camel to wait for the dawn.`
+    ]
   },
   {
     id:"the-outsider",
@@ -1650,7 +1780,11 @@ const STORIES = [
     publication:"Weird Tales, Apr. 1926",
     characters:["the-outsider-entity"],
     locations:["the-sunless-castle"],
-    synopsis:"Raised alone in a decaying, sunless castle with no memory of any other life, a nameless narrator finally climbs up and out in search of daylight and other people. What he finds at a brightly lit gathering — and what happens when he reaches toward his own reflection — reframes everything about who, or what, has been telling the story."
+    synopsis:"Raised alone in a decaying, sunless castle with no memory of any other life, a nameless narrator finally climbs up and out in search of daylight and other people. What he finds at a brightly lit gathering — and what happens when he reaches toward his own reflection — reframes everything about who, or what, has been telling the story.",
+    excerpt:[
+      `Unhappy is he to whom the memories of childhood bring only fear and sadness. Wretched is he who looks back upon lone hours in vast and dismal chambers with brown hangings and maddening rows of antique books, or upon awed watches in twilight groves of grotesque, gigantic, and vine-encumbered trees that silently wave twisted branches far aloft. Such a lot the gods gave to me—to me, the dazed, the disappointed; the barren, the broken. And yet I am strangely content, and cling desperately to those sere memories, when my mind momentarily threatens to reach beyond to the other. I know not where I was born, save that the castle was infinitely old and infinitely horrible; full of dark passages and having high ceilings where the eye could find only cobwebs and shadows. The crumbling corridors seemed always hideously damp, and there was an accursed smell everywhere, as of the piled-up corpses of dead generations. It was never light, so that I used sometimes to light candles and gaze steadily at them for relief; nor was there any sun outdoors, since the terrible trees grew high above the topmost accessible tower. There was one black tower which reached above the trees into the unknown outer sky, but that was partly ruined, and could not be ascended save by a well-nigh impossible climb up the sheer wall, stone by stone.`,
+      `I must have lived years in this place, but I cannot measure the time. Beings must have cared for my needs, yet I cannot recall any person except myself; or anything alive but the noiseless rats and bats and spiders. I think that whoever nursed me must have been shockingly aged, since my first conception of a living person was that of something mockingly like myself, yet distorted, shrivelled, and decaying like the castle. To me there was nothing grotesque in the bones and skeletons that strowed some of the stone crypts deep down among the foundations. I fantastically associated these things with every-day events, and thought them more natural than the coloured pictures of living beings which I found in many of the mouldy books. From such books I learned all that I know. No teacher urged or guided me, and I do not recall hearing any human voice in all those years—not even my own; for although I had read of speech, I had never thought to try to speak aloud. My aspect was a matter equally unthought of, for there were no mirrors in the castle, and I merely regarded myself by instinct as akin to the youthful figures I saw drawn and painted in the books. I felt conscious of youth because I remembered so little.`
+    ]
   },
   {
     id:"dagon",
@@ -1661,7 +1795,13 @@ const STORIES = [
     publication:"The Vagrant, Nov. 1919",
     characters:["dagon"],
     locations:["unnamed-sunken-monolith"],
-    synopsis:"A torpedoed sailor escapes his captors in an open boat and wakes stranded on a reeking expanse of seafloor heaved up overnight by some volcanic upheaval. Crossing it toward a black monolith carved with images no human hand made, he watches something enormous rise from the water to embrace the stone — and spends the rest of his life, and his morphine supply, trying to forget having seen it."
+    synopsis:"A torpedoed sailor escapes his captors in an open boat and wakes stranded on a reeking expanse of seafloor heaved up overnight by some volcanic upheaval. Crossing it toward a black monolith carved with images no human hand made, he watches something enormous rise from the water to embrace the stone — and spends the rest of his life, and his morphine supply, trying to forget having seen it.",
+    excerpt:[
+      `I am writing this under an appreciable mental strain, since by tonight I shall be no more. Penniless, and at the end of my supply of the drug which alone makes life endurable, I can bear the torture no longer; and shall cast myself from this garret window into the squalid street below. Do not think from my slavery to morphine that I am a weakling or a degenerate. When you have read these hastily scrawled pages you may guess, though never fully realise, why it is that I must have forgetfulness or death.`,
+      `It was in one of the most open and least frequented parts of the broad Pacific that the packet of which I was supercargo fell a victim to the German sea-raider. The great war was then at its very beginning, and the ocean forces of the Hun had not completely sunk to their later degradation; so that our vessel was made a legitimate prize, whilst we of her crew were treated with all the fairness and consideration due us as naval prisoners. So liberal, indeed, was the discipline of our captors, that five days after we were taken I managed to escape alone in a small boat with water and provisions for a good length of time.`,
+      `When I finally found myself adrift and free, I had but little idea of my surroundings. Never a competent navigator, I could only guess vaguely by the sun and stars that I was somewhat south of the equator. Of the longitude I knew nothing, and no island or coast-line was in sight. The weather kept fair, and for uncounted days I drifted aimlessly beneath the scorching sun; waiting either for some passing ship, or to be cast on the shores of some habitable land. But neither ship nor land appeared, and I began to despair in my solitude upon the heaving vastnesses of unbroken blue.`,
+      `The change happened whilst I slept. Its details I shall never know; for my slumber, though troubled and dream-infested, was continuous. When at last I awaked, it was to discover myself half sucked into a slimy expanse of hellish black mire which extended about me in monotonous undulations as far as I could see, and in which my boat lay grounded some distance away.`
+    ]
   },
   {
     id:"shunned-house",
@@ -1705,7 +1845,12 @@ const STORIES = [
     publication:"Weird Tales, Feb. 1924",
     characters:["hound-entity"],
     locations:["dutch-churchyard"],
-    synopsis:"Two jaded dilettantes, having exhausted every fashionable vice, take up grave-robbing for the thrill of it — until a jade amulet lifted from a five-hundred-year-old grave in Holland turns out to belong to someone, or something, still very much interested in getting it back."
+    synopsis:"Two jaded dilettantes, having exhausted every fashionable vice, take up grave-robbing for the thrill of it — until a jade amulet lifted from a five-hundred-year-old grave in Holland turns out to belong to someone, or something, still very much interested in getting it back.",
+    excerpt:[
+      `In my tortured ears there sounds unceasingly a nightmare whirring and flapping, and a faint, distant baying as of some gigantic hound. It is not dream—it is not, I fear, even madness—for too much has already happened to give me these merciful doubts. St. John is a mangled corpse; I alone know why, and such is my knowledge that I am about to blow out my brains for fear I shall be mangled in the same way. Down unlit and illimitable corridors of eldritch phantasy sweeps the black, shapeless Nemesis that drives me to self-annihilation.`,
+      `May heaven forgive the folly and morbidity which led us both to so monstrous a fate! Wearied with the commonplaces of a prosaic world, where even the joys of romance and adventure soon grow stale, St. John and I had followed enthusiastically every aesthetic and intellectual movement which promised respite from our devastating ennui. The enigmas of the Symbolists and the ecstasies of the pre-Raphaelites all were ours in their time, but each new mood was drained too soon of its diverting novelty and appeal. Only the sombre philosophy of the Decadents could hold us, and this we found potent only by increasing gradually the depth and diabolism of our penetrations. Baudelaire and Huysmans were soon exhausted of thrills, till finally there remained for us only the more direct stimuli of unnatural personal experiences and adventures. It was this frightful emotional need which led us eventually to that detestable course which even in my present fear I mention with shame and timidity—that hideous extremity of human outrage, the abhorred practice of grave-robbing.`,
+      `I cannot reveal the details of our shocking expeditions, or catalogue even partly the worst of the trophies adorning the nameless museum we prepared in the great stone house where we jointly dwelt, alone and servantless. Our museum was a blasphemous, unthinkable place, where with the satanic taste of neurotic virtuosi we had assembled an universe of terror and decay to excite our jaded sensibilities. It was a secret room, far, far underground; where huge winged daemons carven of basalt and onyx vomited from wide grinning mouths weird green and orange light, and hidden pneumatic pipes ruffled into kaleidoscopic dances of death the lines of red charnel things hand in hand woven in voluminous black hangings. Through these pipes came at will the odours our moods most craved; sometimes the scent of pale funeral lilies, sometimes the narcotic incense of imagined Eastern shrines of the kingly dead, and sometimes—how I shudder to recall it!—the frightful, soul-upheaving stenches of the uncovered grave.`
+    ]
   },
   {
     id:"picture-in-the-house",
@@ -1716,7 +1861,12 @@ const STORIES = [
     publication:"The National Amateur, Jul. 1921",
     characters:["picture-house-hermit"],
     locations:["miskatonic-valley-farmhouse"],
-    synopsis:"A genealogist caught in a November storm takes shelter in an isolated Miskatonic Valley farmhouse, where the elderly owner's fixation on a seventeenth-century engraving of ritual cannibalism turns out to be considerably more personal than academic interest would explain. A single dark stain spreading across the ceiling settles the question before the man can finish confessing to it."
+    synopsis:"A genealogist caught in a November storm takes shelter in an isolated Miskatonic Valley farmhouse, where the elderly owner's fixation on a seventeenth-century engraving of ritual cannibalism turns out to be considerably more personal than academic interest would explain. A single dark stain spreading across the ceiling settles the question before the man can finish confessing to it.",
+    excerpt:[
+      `Searchers after horror haunt strange, far places. For them are the catacombs of Ptolemais, and the carven mausolea of the nightmare countries. They climb to the moonlit towers of ruined Rhine castles, and falter down black cobwebbed steps beneath the scattered stones of forgotten cities in Asia. The haunted wood and the desolate mountain are their shrines, and they linger around the sinister monoliths on uninhabited islands. But the true epicure in the terrible, to whom a new thrill of unutterable ghastliness is the chief end and justification of existence, esteems most of all the ancient, lonely farmhouses of backwoods New England; for there the dark elements of strength, solitude, grotesqueness, and ignorance combine to form the perfection of the hideous.`,
+      `Most horrible of all sights are the little unpainted wooden houses remote from travelled ways, usually squatted upon some damp, grassy slope or leaning against some gigantic outcropping of rock. Two hundred years and more they have leaned or squatted there, while the vines have crawled and the trees have swelled and spread. They are almost hidden now in lawless luxuriances of green and guardian shrouds of shadow; but the small-paned windows still stare shockingly, as if blinking through a lethal stupor which wards off madness by dulling the memory of unutterable things.`,
+      `In such houses have dwelt generations of strange people, whose like the world has never seen. Seized with a gloomy and fanatical belief which exiled them from their kind, their ancestors sought the wilderness for freedom. There the scions of a conquering race indeed flourished free from the restrictions of their fellows, but cowered in an appalling slavery to the dismal phantasms of their own minds. Divorced from the enlightenment of civilisation, the strength of these Puritans turned into singular channels; and in their isolation, morbid self-repression, and struggle for life with relentless Nature, there came to them dark furtive traits from the prehistoric depths of their cold Northern heritage. By necessity practical and by philosophy stern, these folk were not beautiful in their sins. Erring as all mortals must, they were forced by their rigid code to seek concealment above all else; so that they came to use less and less taste in what they concealed. Only the silent, sleepy, staring houses in the backwoods can tell all that has lain hidden since the early days; and they are not communicative, being loath to shake off the drowsiness which helps them forget. Sometimes one feels that it would be merciful to tear down these houses, for they must often dream.`
+    ]
   },
   {
     id:"lurking-fear",
@@ -1727,7 +1877,12 @@ const STORIES = [
     publication:"Home Brew, Jan.–Apr. 1923 (four installments)",
     characters:["martense-brood"],
     locations:["tempest-mountain"],
-    synopsis:"An investigator researching a string of mass deaths on a Catskills mountain traces the killings to an abandoned mansion and the reclusive family line that once lived there. What the family became, after generations of isolation and interbreeding underground, turns out to explain both the deaths and why nobody who investigates too closely on a stormy night comes back to say so twice."
+    synopsis:"An investigator researching a string of mass deaths on a Catskills mountain traces the killings to an abandoned mansion and the reclusive family line that once lived there. What the family became, after generations of isolation and interbreeding underground, turns out to explain both the deaths and why nobody who investigates too closely on a stormy night comes back to say so twice.",
+    excerpt:[
+      `There was thunder in the air on the night I went to the deserted mansion atop Tempest Mountain to find the lurking fear. I was not alone, for foolhardiness was not then mixed with that love of the grotesque and the terrible which has made my career a series of quests for strange horrors in literature and in life. With me were two faithful and muscular men for whom I had sent when the time came; men long associated with me in my ghastly explorations because of their peculiar fitness. We had started quietly from the village because of the reporters who still lingered about after the eldritch panic of a month before—the nightmare creeping death. Later, I thought, they might aid me; but I did not want them then. Would to God I had let them share the search, that I might not have had to bear the secret alone so long; to bear it alone for fear the world would call me mad or go mad itself at the daemon implications of the thing. Now that I am telling it anyway, lest the brooding make me a maniac, I wish I had never concealed it. For I, and I only, know what manner of fear lurked on that spectral and desolate mountain.`,
+      `In a small motor-car we covered the miles of primeval forest and hill until the wooded ascent checked it. The country bore an aspect more than usually sinister as we viewed it by night and without the accustomed crowds of investigators, so that we were often tempted to use the acetylene headlight despite the attention it might attract. It was not a wholesome landscape after dark, and I believe I would have noticed its morbidity even had I been ignorant of the terror that stalked there. Of wild creatures there were none—they are wise when death leers close. The ancient lightning-scarred trees seemed unnaturally large and twisted, and the other vegetation unnaturally thick and feverish, while curious mounds and hummocks in the weedy, fulgurite-pitted earth reminded me of snakes and dead men's skulls swelled to gigantic proportions.`,
+      `Fear had lurked on Tempest Mountain for more than a century. This I learned at once from newspaper accounts of the catastrophe which first brought the region to the world's notice. The place is a remote, lonely elevation in that part of the Catskills where Dutch civilisation once feebly and transiently penetrated, leaving behind as it receded only a few ruined mansions and a degenerate squatter population inhabiting pitiful hamlets on isolated slopes. Normal beings seldom visited the locality till the state police were formed, and even now only infrequent troopers patrol it. The fear, however, is an old tradition throughout the neighbouring villages; since it is a prime topic in the simple discourse of the poor mongrels who sometimes leave their valleys to trade hand-woven baskets for such primitive necessities as they cannot shoot, raise, or make.`
+    ]
   },
   {
     id:"arthur-jermyn",
@@ -1738,7 +1893,12 @@ const STORIES = [
     publication:"The Wolverine, Mar. & Jun. 1921 (two parts)",
     characters:["ape-princess-of-kongo"],
     locations:["kongo-ape-city"],
-    synopsis:"A distinguished but physically unfortunate scholar researches his family's Congo expedition history to understand an ancestor's ruined reputation, and arranges for the shipment of a preserved specimen said to confirm an old African legend about a lost city and its ape-like queen. Unpacking the crate answers every question about his lineage he never meant to ask, in the worst possible way."
+    synopsis:"A distinguished but physically unfortunate scholar researches his family's Congo expedition history to understand an ancestor's ruined reputation, and arranges for the shipment of a preserved specimen said to confirm an old African legend about a lost city and its ape-like queen. Unpacking the crate answers every question about his lineage he never meant to ask, in the worst possible way.",
+    excerpt:[
+      `Life is a hideous thing, and from the background behind what we know of it peer daemoniacal hints of truth which make it sometimes a thousandfold more hideous. Science, already oppressive with its shocking revelations, will perhaps be the ultimate exterminator of our human species—if separate species we be—for its reserve of unguessed horrors could never be borne by mortal brains if loosed upon the world. If we knew what we are, we should do as Sir Arthur Jermyn did; and Arthur Jermyn soaked himself in oil and set fire to his clothing one night. No one placed the charred fragments in an urn or set a memorial to him who had been; for certain papers and a certain boxed object were found, which made men wish to forget. Some who knew him do not admit that he ever existed.`,
+      `Arthur Jermyn went out on the moor and burned himself after seeing the boxed object which had come from Africa. It was this object, and not his peculiar personal appearance, which made him end his life. Many would have disliked to live if possessed of the peculiar features of Arthur Jermyn, but he had been a poet and scholar and had not minded. Learning was in his blood, for his great-grandfather, Sir Robert Jermyn, Bt., had been an anthropologist of note, whilst his great-great-great-grandfather, Sir Wade Jermyn, was one of the earliest explorers of the Congo region, and had written eruditely of its tribes, animals, and supposed antiquities. Indeed, old Sir Wade had possessed an intellectual zeal amounting almost to a mania; his bizarre conjectures on a prehistoric white Congolese civilisation earning him much ridicule when his book, Observations on the Several Parts of Africa, was published. In 1765 this fearless explorer had been placed in a madhouse at Huntingdon.`,
+      `Madness was in all the Jermyns, and people were glad there were not many of them. The line put forth no branches, and Arthur was the last of it. If he had not been, one cannot say what he would have done when the object came. The Jermyns never seemed to look quite right—something was amiss, though Arthur was the worst, and the old family portraits in Jermyn House shewed fine faces enough before Sir Wade's time. Certainly, the madness began with Sir Wade, whose wild stories of Africa were at once the delight and terror of his few friends. It shewed in his collection of trophies and specimens, which were not such as a normal man would accumulate and preserve, and appeared strikingly in the Oriental seclusion in which he kept his wife. The latter, he had said, was the daughter of a Portuguese trader whom he had met in Africa; and did not like English ways. She, with an infant son born in Africa, had accompanied him back from the second and longest of his trips, and had gone with him on the third and last, never returning. No one had ever seen her closely, not even the servants; for her disposition had been violent and singular. During her brief stay at Jermyn House she occupied a remote wing, and was waited on by her husband alone. Sir Wade was, indeed, most peculiar in his solicitude for his family; for when he returned to Africa he would permit no one to care for his young son save a loathsome black woman from Guinea. Upon coming back, after the death of Lady Jermyn, he himself assumed complete care of the boy.`
+    ]
   },
   {
     id:"horror-at-red-hook",
@@ -1749,7 +1909,11 @@ const STORIES = [
     publication:"Weird Tales, Jan. 1927",
     characters:["red-hook-cult"],
     locations:["red-hook"],
-    synopsis:"A New York police detective investigating a wave of disappearances in a Brooklyn waterfront district follows the trail to a wealthy recluse's sudden late-life transformation and the mixed congregation gathering nightly in his basement. What the detective finds beneath the building outlives the raid that's supposed to shut it down, and outlives the recluse too."
+    synopsis:"A New York police detective investigating a wave of disappearances in a Brooklyn waterfront district follows the trail to a wealthy recluse's sudden late-life transformation and the mixed congregation gathering nightly in his basement. What the detective finds beneath the building outlives the raid that's supposed to shut it down, and outlives the recluse too.",
+    excerpt:[
+      `Not many weeks ago, on a street corner in the village of Pascoag, Rhode Island, a tall, heavily built, and wholesome-looking pedestrian furnished much speculation by a singular lapse of behaviour. He had, it appears, been descending the hill by the road from Chepachet; and encountering the compact section, had turned to his left into the main thoroughfare where several modest business blocks convey a touch of the urban. At this point, without visible provocation, he committed his astonishing lapse; staring queerly for a second at the tallest of the buildings before him, and then, with a series of terrified, hysterical shrieks, breaking into a frantic run which ended in a stumble and fall at the next crossing. Picked up and dusted off by ready hands, he was found to be conscious, organically unhurt, and evidently cured of his sudden nervous attack. He muttered some shamefaced explanations involving a strain he had undergone, and with downcast glance turned back up the Chepachet road, trudging out of sight without once looking behind him. It was a strange incident to befall so large, robust, normal-featured, and capable-looking a man, and the strangeness was not lessened by the remarks of a bystander who had recognised him as the boarder of a well-known dairyman on the outskirts of Chepachet.`,
+      `He was, it developed, a New York police detective named Thomas F. Malone, now on a long leave of absence under medical treatment after some disproportionately arduous work on a gruesome local case which accident had made dramatic. There had been a collapse of several old brick buildings during a raid in which he had shared, and something about the wholesale loss of life, both of prisoners and of his companions, had peculiarly appalled him. As a result, he had acquired an acute and anomalous horror of any buildings even remotely suggesting the ones which had fallen in, so that in the end mental specialists forbade him the sight of such things for an indefinite period. A police surgeon with relatives in Chepachet had put forward that quaint hamlet of wooden colonial houses as an ideal spot for the psychological convalescence; and thither the sufferer had gone, promising never to venture among the brick-lined streets of larger villages till duly advised by the Woonsocket specialist with whom he was put in touch. This walk to Pascoag for magazines had been a mistake, and the patient had paid in fright, bruises, and humiliation for his disobedience.`
+    ]
   },
   {
     id:"he",
@@ -1760,7 +1924,12 @@ const STORIES = [
     publication:"Weird Tales, Sept. 1926",
     characters:["ageless-squire"],
     locations:["squires-alley"],
-    synopsis:"A disillusioned poet wandering Greenwich Village after dark accepts a strange, colonial-dressed stranger's offer of a shortcut through the city's forgotten byways, and gets considerably more history than he was looking for. The tour ends with a debt two centuries overdue finally coming to collect, and a narrator who can never find that particular street again."
+    synopsis:"A disillusioned poet wandering Greenwich Village after dark accepts a strange, colonial-dressed stranger's offer of a shortcut through the city's forgotten byways, and gets considerably more history than he was looking for. The tour ends with a debt two centuries overdue finally coming to collect, and a narrator who can never find that particular street again.",
+    excerpt:[
+      `I saw him on a sleepless night when I was walking desperately to save my soul and my vision.`,
+      `My coming to New York had been a mistake; for whereas I had looked for poignant wonder and inspiration in the teeming labyrinths of ancient streets that twist endlessly from forgotten courts and squares and waterfronts to courts and squares and waterfronts equally forgotten, and in the Cyclopean modern towers and pinnacles that rise blackly Babylonian under waning moons, I had found instead only a sense of horror and oppression which threatened to master, paralyse, and annihilate me. The disillusion had been gradual. Coming for the first time upon the town, I had seen it in the sunset from a bridge, majestic above its waters, its incredible peaks and pyramids rising flower-like and delicate from pools of violet mist to play with the flaming golden clouds and the first stars of evening. Then it had lighted up window by window above the shimmering tides where lanterns nodded and glided and deep horns bayed weird harmonies, and itself become a starry firmament of dream, redolent of faery music, and one with the marvels of Carcassonne and Samarcand and El Dorado and all glorious and half-fabulous cities. Shortly afterward I was taken through those antique ways so dear to my fancy—narrow, curving alleys and passages where rows of red Georgian brick blinked with small-paned dormers above pillared doorways that had looked on gilded sedans and panelled coaches—and in the first flush of realisation of these long-wished things I thought I had indeed achieved such treasures as would make me in time a poet.`,
+      `But success and happiness were not to be. Garish daylight shewed only squalor and alienage and the noxious elephantiasis of climbing, spreading stone where the moon had hinted of loveliness and elder magic; and the throngs of people that seethed through the flume-like streets were squat, swarthy strangers with hardened faces and narrow eyes, shrewd strangers without dreams and without kinship to the scenes about them, who could never mean aught to a blue-eyed man of the old folk, with the love of fair green lanes and white New England village steeples in his heart.`
+    ]
   },
   {
     id:"nyarlathotep-poem",
@@ -1771,7 +1940,12 @@ const STORIES = [
     publication:"The United Amateur, Nov. 1920",
     characters:["nyarlathotep"],
     locations:["doomed-city-of-nyarlathotep"],
-    synopsis:"A stranger calling himself Nyarlathotep arrives from Egypt claiming twenty-seven centuries of memory, and gives increasingly public demonstrations of instruments and abilities that shouldn't exist. Everyone who attends leaves changed, and the city around them starts changing to match — crumbling, emptying, forgetting itself — long before anyone still there works out that the demonstrations were never really the point."
+    synopsis:"A stranger calling himself Nyarlathotep arrives from Egypt claiming twenty-seven centuries of memory, and gives increasingly public demonstrations of instruments and abilities that shouldn't exist. Everyone who attends leaves changed, and the city around them starts changing to match — crumbling, emptying, forgetting itself — long before anyone still there works out that the demonstrations were never really the point.",
+    excerpt:[
+      `Nyarlathotep . . . the crawling chaos . . . I am the last . . . I will tell the audient void. . . .`,
+      `I do not recall distinctly when it began, but it was months ago. The general tension was horrible. To a season of political and social upheaval was added a strange and brooding apprehension of hideous physical danger; a danger widespread and all-embracing, such a danger as may be imagined only in the most terrible phantasms of the night. I recall that the people went about with pale and worried faces, and whispered warnings and prophecies which no one dared consciously repeat or acknowledge to himself that he had heard. A sense of monstrous guilt was upon the land, and out of the abysses between the stars swept chill currents that made men shiver in dark and lonely places. There was a daemoniac alteration in the sequence of the seasons—the autumn heat lingered fearsomely, and everyone felt that the world and perhaps the universe had passed from the control of known gods or forces to that of gods or forces which were unknown.`,
+      `And it was then that Nyarlathotep came out of Egypt. Who he was, none could tell, but he was of the old native blood and looked like a Pharaoh. The fellahin knelt when they saw him, yet could not say why. He said he had risen up out of the blackness of twenty-seven centuries, and that he had heard messages from places not on this planet. Into the lands of civilisation came Nyarlathotep, swarthy, slender, and sinister, always buying strange instruments of glass and metal and combining them into instruments yet stranger. He spoke much of the sciences—of electricity and psychology—and gave exhibitions of power which sent his spectators away speechless, yet which swelled his fame to exceeding magnitude. Men advised one another to see Nyarlathotep, and shuddered. And where Nyarlathotep went, rest vanished; for the small hours were rent with the screams of nightmare. Never before had the screams of nightmare been such a public problem; now the wise men almost wished they could forbid sleep in the small hours, that the shrieks of cities might less horribly disturb the pale, pitying moon as it glimmered on green waters gliding under bridges, and old steeples crumbling against a sickly sky.`
+    ]
   },
   {
     id:"the-temple",
@@ -1782,7 +1956,13 @@ const STORIES = [
     publication:"Weird Tales, Sept. 1925",
     characters:["sunken-temple-race"],
     locations:["atlantic-sunken-temple"],
-    synopsis:"A U-boat commander's official log records his crew's slow unraveling after they recover a small ivory carving from a torpedoed ship, and the disabled submarine's long drift down onto the roofs of a drowned, unmapped city. The last entries describe a temple matching the carving exactly, and a compulsion to put on a diving suit and walk inside it that the commander no longer has any real interest in resisting."
+    synopsis:"A U-boat commander's official log records his crew's slow unraveling after they recover a small ivory carving from a torpedoed ship, and the disabled submarine's long drift down onto the roofs of a drowned, unmapped city. The last entries describe a temple matching the carving exactly, and a compulsion to put on a diving suit and walk inside it that the commander no longer has any real interest in resisting.",
+    excerpt:[
+      `On August 20, 1917, I, Karl Heinrich, Graf von Altberg-Ehrenstein, Lieutenant-Commander in the Imperial German Navy and in charge of the submarine U-29, deposit this bottle and record in the Atlantic Ocean at a point to me unknown but probably about N. Latitude 20°, W. Longitude 35°, where my ship lies disabled on the ocean floor. I do so because of my desire to set certain unusual facts before the public; a thing I shall not in all probability survive to accomplish in person, since the circumstances surrounding me are as menacing as they are extraordinary, and involve not only the hopeless crippling of the U-29, but the impairment of my iron German will in a manner most disastrous.`,
+      `On the afternoon of June 18, as reported by wireless to the U-61, bound for Kiel, we torpedoed the British freighter Victory, New York to Liverpool, in N. Latitude 45° 16′, W. Longitude 28° 34′; permitting the crew to leave in boats in order to obtain a good cinema view for the admiralty records.`,
+      `When we rose to the surface about sunset a seaman's body was found on the deck, hands gripping the railing in curious fashion. The poor fellow was young, rather dark, and very handsome; probably an Italian or Greek, and undoubtedly of the Victory's crew. He had evidently sought refuge on the very ship which had been forced to destroy his own—one more victim of the unjust war of aggression which the English pig-dogs are waging upon the Fatherland. Our men searched him for souvenirs, and found in his coat pocket a very odd bit of ivory carved to represent a youth's head crowned with laurel. My fellow-officer, Lieut. Klenze, believed that the thing was of great age and artistic value, so took it from the men for himself. How it had ever come into the possession of a common sailor, neither he nor I could imagine.`,
+      `As the dead man was thrown overboard there occurred two incidents which created much disturbance amongst the crew. The fellow's eyes had been closed; but in the dragging of his body to the rail they were jarred open, and many seemed to entertain a queer delusion that they gazed steadily and mockingly at Schmidt and Zimmer, who were bent over the corpse. The Boatswain Müller, an elderly man who would have known better had he not been a superstitious Alsatian swine, became so excited by this impression that he watched the body in the water; and swore that after it sank a little it drew its limbs into a swimming position and sped away to the south under the waves.`
+    ]
   },
   {
     id:"beyond-wall-of-sleep",
@@ -1793,7 +1973,13 @@ const STORIES = [
     publication:"Pine Cones, Oct. 1919",
     characters:["cosmic-visitant"],
     locations:["slater-cabin"],
-    synopsis:"A young asylum physician grows convinced that a backwoods patient's violent dreams are transmissions rather than delusions, and builds a wireless apparatus to find out for certain just as the man is dying. What answers back identifies itself as something considerably older and larger than the body it's been trapped inside for forty-two years, with unfinished business to attend to the moment it's free."
+    synopsis:"A young asylum physician grows convinced that a backwoods patient's violent dreams are transmissions rather than delusions, and builds a wireless apparatus to find out for certain just as the man is dying. What answers back identifies itself as something considerably older and larger than the body it's been trapped inside for forty-two years, with unfinished business to attend to the moment it's free.",
+    excerpt:[
+      `I have frequently wondered if the majority of mankind ever pause to reflect upon the occasionally titanic significance of dreams, and of the obscure world to which they belong.`,
+      `It was from a youthful reverie filled with speculations of this sort that I arose one afternoon in the winter of 1900–1901, when to the state psychopathic institution in which I served as an interne was brought the man whose case has ever since haunted me so unceasingly.`,
+      `Joe Slater, who came to the institution in the vigilant custody of four state policemen, and who was described as a highly dangerous character, certainly presented no evidence of his perilous disposition when first I beheld him. Though well above the middle stature, and of somewhat brawny frame, he was given an absurd appearance of harmless stupidity by the pale, sleepy blueness of his small watery eyes, the scantiness of his neglected and never-shaven growth of yellow beard, and the listless drooping of his heavy nether lip. His age was unknown, since among his kind neither family records nor permanent family ties exist; but from the baldness of his head in front, and from the decayed condition of his teeth, the head surgeon wrote him down as a man of about forty.`,
+      `From the medical and court documents we learned all that could be gathered of his case. This man, a vagabond, hunter, and trapper, had always been strange in the eyes of his primitive associates. He had habitually slept at night beyond the ordinary time, and upon waking would often talk of unknown things in a manner so bizarre as to inspire fear even in the hearts of an unimaginative populace. Not that his form of language was at all unusual, for he never spoke save in the debased patois of his environment; but the tone and tenor of his utterances were of such mysterious wildness, that none might listen without apprehension. He himself was generally as terrified and baffled as his auditors, and within an hour after awakening would forget all that he had said, or at least all that had caused him to say what he did; relapsing into a bovine, half-amiable normality like that of the other hill-dwellers.`
+    ]
   },
   {
     id:"cats-of-ulthar",
@@ -1804,7 +1990,12 @@ const STORIES = [
     publication:"Tryout, Nov. 1920",
     characters:["cats-of-ulthar-entity","atal"],
     locations:["ulthar"],
-    synopsis:"An orphaned boy traveling with a caravan loses his only companion to a cruel elderly couple locally known for trapping and killing cats, and responds with a prayer in a language nobody present recognizes. Every cat in the village disappears that night and returns well-fed the next morning; what's left of the couple afterward is enough to get cat-killing formally outlawed in Ulthar for good."
+    synopsis:"An orphaned boy traveling with a caravan loses his only companion to a cruel elderly couple locally known for trapping and killing cats, and responds with a prayer in a language nobody present recognizes. Every cat in the village disappears that night and returns well-fed the next morning; what's left of the couple afterward is enough to get cat-killing formally outlawed in Ulthar for good.",
+    excerpt:[
+      `It is said that in Ulthar, which lies beyond the river Skai, no man may kill a cat; and this I can verily believe as I gaze upon him who sitteth purring before the fire. For the cat is cryptic, and close to strange things which men cannot see. He is the soul of antique Aegyptus, and bearer of tales from forgotten cities in Meroë and Ophir. He is the kin of the jungle's lords, and heir to the secrets of hoary and sinister Africa. The Sphinx is his cousin, and he speaks her language; but he is more ancient than the Sphinx, and remembers that which she hath forgotten.`,
+      `In Ulthar, before ever the burgesses forbade the killing of cats, there dwelt an old cotter and his wife who delighted to trap and slay the cats of their neighbours. Why they did this I know not; save that many hate the voice of the cat in the night, and take it ill that cats should run stealthily about yards and gardens at twilight. But whatever the reason, this old man and woman took pleasure in trapping and slaying every cat which came near to their hovel; and from some of the sounds heard after dark, many villagers fancied that the manner of slaying was exceedingly peculiar. But the villagers did not discuss such things with the old man and his wife; because of the habitual expression on the withered faces of the two, and because their cottage was so small and so darkly hidden under spreading oaks at the back of a neglected yard. In truth, much as the owners of cats hated these odd folk, they feared them more; and instead of berating them as brutal assassins, merely took care that no cherished pet or mouser should stray toward the remote hovel under the dark trees. When through some unavoidable oversight a cat was missed, and sounds heard after dark, the loser would lament impotently; or console himself by thanking Fate that it was not one of his children who had thus vanished. For the people of Ulthar were simple, and knew not whence it is all cats first came.`,
+      `One day a caravan of strange wanderers from the South entered the narrow cobbled streets of Ulthar. Dark wanderers they were, and unlike the other roving folk who passed through the village twice every year. In the market-place they told fortunes for silver, and bought gay beads from the merchants. What was the land of these wanderers none could tell; but it was seen that they were given to strange prayers, and that they had painted on the sides of their wagons strange figures with human bodies and the heads of cats, hawks, rams, and lions. And the leader of the caravan wore a head-dress with two horns and a curious disc betwixt the horns.`
+    ]
   },
   {
     id:"doom-that-came-to-sarnath",
@@ -1815,7 +2006,13 @@ const STORIES = [
     publication:"The Scot, Jun. 1920",
     characters:["bokrug"],
     locations:["sarnath-ruins"],
-    synopsis:"The men of Sarnath wipe out the older, stranger settlement of Ib on the shore of their lake and carry off its sea-green idol as a trophy, dismissing the high priest's death-scrawled warning as coincidence. The idol vanishes a thousand years later on the night of Sarnath's grandest celebration, at the exact hour something answers Ib's warning at last."
+    synopsis:"The men of Sarnath wipe out the older, stranger settlement of Ib on the shore of their lake and carry off its sea-green idol as a trophy, dismissing the high priest's death-scrawled warning as coincidence. The idol vanishes a thousand years later on the night of Sarnath's grandest celebration, at the exact hour something answers Ib's warning at last.",
+    excerpt:[
+      `There is in the land of Mnar a vast still lake that is fed by no stream and out of which no stream flows. Ten thousand years ago there stood by its shore the mighty city of Sarnath, but Sarnath stands there no more.`,
+      `It is told that in the immemorial years when the world was young, before ever the men of Sarnath came to the land of Mnar, another city stood beside the lake; the grey stone city of Ib, which was old as the lake itself, and peopled with beings not pleasing to behold. Very odd and ugly were these beings, as indeed are most beings of a world yet inchoate and rudely fashioned. It is written on the brick cylinders of Kadatheron that the beings of Ib were in hue as green as the lake and the mists that rise above it; that they had bulging eyes, pouting, flabby lips, and curious ears, and were without voice. It is also written that they descended one night from the moon in a mist; they and the vast still lake and grey stone city Ib. However this may be, it is certain that they worshipped a sea-green stone idol chiselled in the likeness of Bokrug, the great water-lizard; before which they danced horribly when the moon was gibbous. And it is written in the papyrus of Ilarnek, that they one day discovered fire, and thereafter kindled flames on many ceremonial occasions. But not much is written of these beings, because they lived in very ancient times, and man is young, and knows little of the very ancient living things.`,
+      `After many aeons men came to the land of Mnar; dark shepherd folk with their fleecy flocks, who built Thraa, Ilarnek, and Kadatheron on the winding river Ai. And certain tribes, more hardy than the rest, pushed on to the border of the lake and built Sarnath at a spot where precious metals were found in the earth.`,
+      `Not far from the grey city of Ib did the wandering tribes lay the first stones of Sarnath, and at the beings of Ib they marvelled greatly. But with their marvelling was mixed hate, for they thought it not meet that beings of such aspect should walk about the world of men at dusk. Nor did they like the strange sculptures upon the grey monoliths of Ib, for those sculptures were terrible with great antiquity. Why the beings and the sculptures lingered so late in the world, even until the coming of men, none can tell; unless it was because the land of Mnar is very still, and remote from most other lands both of waking and of dream.`
+    ]
   },
   {
     id:"silver-key",
@@ -1826,7 +2023,12 @@ const STORIES = [
     publication:"Weird Tales, Jan. 1929",
     characters:["randolph-carter"],
     locations:["carter-farmhouse-ruins"],
-    synopsis:"A Boston aesthete who spent his boyhood dream-traveling to genuinely other places finds, at fifty and thoroughly disillusioned with waking life, an ornate silver key his ancestors left behind in an old attic box. Driving out to his family's ruined homestead to test what it opens, he leaves behind only his car and the box it came in — and, by his closest friend's account, is very much still somewhere, just not anywhere reachable by road."
+    synopsis:"A Boston aesthete who spent his boyhood dream-traveling to genuinely other places finds, at fifty and thoroughly disillusioned with waking life, an ornate silver key his ancestors left behind in an old attic box. Driving out to his family's ruined homestead to test what it opens, he leaves behind only his car and the box it came in — and, by his closest friend's account, is very much still somewhere, just not anywhere reachable by road.",
+    excerpt:[
+      `When Randolph Carter was thirty he lost the key of the gate of dreams. Prior to that time he had made up for the prosiness of life by nightly excursions to strange and ancient cities beyond space, and lovely, unbelievable garden lands across ethereal seas; but as middle age hardened upon him he felt these liberties slipping away little by little, until at last he was cut off altogether. No more could his galleys sail up the river Oukranos past the gilded spires of Thran, or his elephant caravans tramp through perfumed jungles in Kled, where forgotten palaces with veined ivory columns sleep lovely and unbroken under the moon.`,
+      `He had read much of things as they are, and talked with too many people. Well-meaning philosophers had taught him to look into the logical relations of things, and analyse the processes which shaped his thoughts and fancies. Wonder had gone away, and he had forgotten that all life is only a set of pictures in the brain, among which there is no difference betwixt those born of real things and those born of inward dreamings, and no cause to value the one above the other. Custom had dinned into his ears a superstitious reverence for that which tangibly and physically exists, and had made him secretly ashamed to dwell in visions. Wise men told him his simple fancies were inane and childish, and he believed it because he could see that they might easily be so. What he failed to recall was that the deeds of reality are just as inane and childish, and even more absurd because their actors persist in fancying them full of meaning and purpose as the blind cosmos grinds aimlessly on from nothing to something and from something back to nothing again, neither heeding nor knowing the wishes or existence of the minds that flicker for a second now and then in the darkness.`,
+      `They had chained him down to things that are, and had then explained the workings of those things till mystery had gone out of the world. When he complained, and longed to escape into twilight realms where magic moulded all the little vivid fragments and prized associations of his mind into vistas of breathless expectancy and unquenchable delight, they turned him instead toward the new-found prodigies of science, bidding him find wonder in the atom's vortex and mystery in the sky's dimensions. And when he had failed to find these boons in things whose laws are known and measurable, they told him he lacked imagination, and was immature because he preferred dream-illusions to the illusions of our physical creation.`
+    ]
   },
   {
     id:"the-unnamable",
@@ -1837,7 +2039,11 @@ const STORIES = [
     publication:"Weird Tales, Jul. 1925",
     characters:["randolph-carter","unnamable-thing"],
     locations:["arkham-burying-ground"],
-    synopsis:"A writer of weird fiction and his skeptical friend argue, seated in an old Arkham burying ground at dusk, over whether a truly indescribable horror could exist outside of bad prose. The writer's own family diary — describing a centuries-old thing with one wrong eye that marked and unmade three generations before it was driven off — turns out to be background research rather than argument, once the same presence answers the debate directly from the derelict house next door."
+    synopsis:"A writer of weird fiction and his skeptical friend argue, seated in an old Arkham burying ground at dusk, over whether a truly indescribable horror could exist outside of bad prose. The writer's own family diary — describing a centuries-old thing with one wrong eye that marked and unmade three generations before it was driven off — turns out to be background research rather than argument, once the same presence answers the debate directly from the derelict house next door.",
+    excerpt:[
+      `We were sitting on a dilapidated seventeenth-century tomb in the late afternoon of an autumn day at the old burying-ground in Arkham, and speculating about the unnamable. Looking toward the giant willow in the centre of the cemetery, whose trunk has nearly engulfed an ancient, illegible slab, I had made a fantastic remark about the spectral and unmentionable nourishment which the colossal roots must be sucking in from that hoary, charnel earth; when my friend chided me for such nonsense and told me that since no interments had occurred there for over a century, nothing could possibly exist to nourish the tree in other than an ordinary manner. Besides, he added, my constant talk about "unnamable" and "unmentionable" things was a very puerile device, quite in keeping with my lowly standing as an author. I was too fond of ending my stories with sights or sounds which paralysed my heroes' faculties and left them without courage, words, or associations to tell what they had experienced. We know things, he said, only through our five senses or our religious intuitions; wherefore it is quite impossible to refer to any object or spectacle which cannot be clearly depicted by the solid definitions of fact or the correct doctrines of theology—preferably those of the Congregationalists, with whatever modifications tradition and Sir Arthur Conan Doyle may supply.`,
+      `With this friend, Joel Manton, I had often languidly disputed. He was principal of the East High School, born and bred in Boston and sharing New England's self-satisfied deafness to the delicate overtones of life. It was his view that only our normal, objective experiences possess any aesthetic significance, and that it is the province of the artist not so much to rouse strong emotion by action, ecstasy, and astonishment, as to maintain a placid interest and appreciation by accurate, detailed transcripts of every-day affairs. Especially did he object to my preoccupation with the mystical and the unexplained; for although believing in the supernatural much more fully than I, he would not admit that it is sufficiently commonplace for literary treatment. That a mind can find its greatest pleasure in escapes from the daily treadmill, and in original and dramatic recombinations of images usually thrown by habit and fatigue into the hackneyed patterns of actual existence, was something virtually incredible to his clear, practical, and logical intellect. With him all things and feelings had fixed dimensions, properties, causes, and effects; and although he vaguely knew that the mind sometimes holds visions and sensations of far less geometrical, classifiable, and workable nature, he believed himself justified in drawing an arbitrary line and ruling out of court all that cannot be experienced and understood by the average citizen. Besides, he was almost sure that nothing can be really "unnamable". It didn't sound sensible to him.`
+    ]
   },
   {
     id:"the-tomb",
@@ -1848,7 +2054,12 @@ const STORIES = [
     publication:"The Vagrant, Mar. 1922",
     characters:["jervas-dudley"],
     locations:["hyde-tomb-hollow"],
-    synopsis:"A wealthy, solitary young dreamer grows fixated as a boy on his family's sealed ancestral tomb, and once he finally gets inside it, starts speaking, dressing, and remembering like someone considerably older and longer dead. A final stormy night brings a vision of the family's burned mansion restored to its old glory, and the fire that takes it a second time — after which the young man's own family has him committed rather than asked what, exactly, he thinks he now is."
+    synopsis:"A wealthy, solitary young dreamer grows fixated as a boy on his family's sealed ancestral tomb, and once he finally gets inside it, starts speaking, dressing, and remembering like someone considerably older and longer dead. A final stormy night brings a vision of the family's burned mansion restored to its old glory, and the fire that takes it a second time — after which the young man's own family has him committed rather than asked what, exactly, he thinks he now is.",
+    excerpt:[
+      `In relating the circumstances which have led to my confinement within this refuge for the demented, I am aware that my present position will create a natural doubt of the authenticity of my narrative. It is an unfortunate fact that the bulk of humanity is too limited in its mental vision to weigh with patience and intelligence those isolated phenomena, seen and felt only by a psychologically sensitive few, which lie outside its common experience. Men of broader intellect know that there is no sharp distinction betwixt the real and the unreal; that all things appear as they do only by virtue of the delicate individual physical and mental media through which we are made conscious of them; but the prosaic materialism of the majority condemns as madness the flashes of super-sight which penetrate the common veil of obvious empiricism.`,
+      `My name is Jervas Dudley, and from earliest childhood I have been a dreamer and a visionary. Wealthy beyond the necessity of a commercial life, and temperamentally unfitted for the formal studies and social recreations of my acquaintances, I have dwelt ever in realms apart from the visible world; spending my youth and adolescence in ancient and little-known books, and in roaming the fields and groves of the region near my ancestral home. I do not think that what I read in these books or saw in these fields and groves was exactly what other boys read and saw there; but of this I must say little, since detailed speech would but confirm those cruel slanders upon my intellect which I sometimes overhear from the whispers of the stealthy attendants around me. It is sufficient for me to relate events without analysing causes.`,
+      `I have said that I dwelt apart from the visible world, but I have not said that I dwelt alone. This no human creature may do; for lacking the fellowship of the living, he inevitably draws upon the companionship of things that are not, or are no longer, living. Close by my home there lies a singular wooded hollow, in whose twilight deeps I spent most of my time; reading, thinking, and dreaming. Down its moss-covered slopes my first steps of infancy were taken, and around its grotesquely gnarled oak trees my first fancies of boyhood were woven. Well did I come to know the presiding dryads of those trees, and often have I watched their wild dances in the struggling beams of a waning moon—but of these things I must not now speak. I will tell only of the lone tomb in the darkest of the hillside thickets; the deserted tomb of the Hydes, an old and exalted family whose last direct descendant had been laid within its black recesses many decades before my birth.`
+    ]
   },
   {
     id:"polaris",
@@ -1859,7 +2070,12 @@ const STORIES = [
     publication:"The Philosopher, Dec. 1920",
     characters:["inutos"],
     locations:["olathoe"],
-    synopsis:"A dreamer splits his waking attention between an ordinary modern home and a post he keeps watch from in an ancient arctic city under siege, uncertain for most of the account which life is the dream. Lulled to sleep at his watchtower by the Pole Star's voice at the exact moment his warning is needed most, he wakes to find his city's fate sealed and no way to prove — to himself least of all — which of his two lives was ever the real one."
+    synopsis:"A dreamer splits his waking attention between an ordinary modern home and a post he keeps watch from in an ancient arctic city under siege, uncertain for most of the account which life is the dream. Lulled to sleep at his watchtower by the Pole Star's voice at the exact moment his warning is needed most, he wakes to find his city's fate sealed and no way to prove — to himself least of all — which of his two lives was ever the real one.",
+    excerpt:[
+      `Into the north window of my chamber glows the Pole Star with uncanny light. All through the long hellish hours of blackness it shines there. And in the autumn of the year, when the winds from the north curse and whine, and the red-leaved trees of the swamp mutter things to one another in the small hours of the morning under the horned waning moon, I sit by the casement and watch that star. Down from the heights reels the glittering Cassiopeia as the hours wear on, while Charles' Wain lumbers up from behind the vapour-soaked swamp trees that sway in the night-wind. Just before dawn Arcturus winks ruddily from above the cemetery on the low hillock, and Coma Berenices shimmers weirdly afar off in the mysterious east; but still the Pole Star leers down from the same place in the black vault, winking hideously like an insane watching eye which strives to convey some strange message, yet recalls nothing save that it once had a message to convey. Sometimes, when it is cloudy, I can sleep.`,
+      `Well do I remember the night of the great Aurora, when over the swamp played the shocking coruscations of the daemon-light. After the beams came clouds, and then I slept. And it was under a horned waning moon that I saw the city for the first time.`,
+      `Still and somnolent did it lie, on a strange plateau in a hollow betwixt strange peaks. Of ghastly marble were its walls and its towers, its columns, domes, and pavements. In the marble streets were marble pillars, the upper parts of which were carven into the images of grave bearded men. The air was warm and stirred not. And overhead, scarce ten degrees from the zenith, glowed that watching Pole Star. Long did I gaze on the city, but the day came not. When the red Aldebaran, which blinked low in the sky but never set, had crawled a quarter of the way around the horizon, I saw light and motion in the houses and the streets. Forms strangely robed, but at once noble and familiar, walked abroad, and under the horned waning moon men talked wisdom in a tongue which I understood, though it was unlike any language I had ever known. And when the red Aldebaran had crawled more than half way around the horizon, there were again darkness and silence.`
+    ]
   },
   {
     id:"moon-bog",
@@ -1870,7 +2086,12 @@ const STORIES = [
     publication:"Weird Tales, Jun. 1926",
     characters:["moon-bog-wraiths"],
     locations:["kilderry-bog"],
-    synopsis:"An American returns to reclaim his family's ancestral castle in rural Ireland and announces plans to drain the bog beside it, over the loud objections of every local who still remembers why that bog has never been touched. The drainage crew he imports from outside the district doesn't survive the first night of actual work, and neither, in every way that matters, does he."
+    synopsis:"An American returns to reclaim his family's ancestral castle in rural Ireland and announces plans to drain the bog beside it, over the loud objections of every local who still remembers why that bog has never been touched. The drainage crew he imports from outside the district doesn't survive the first night of actual work, and neither, in every way that matters, does he.",
+    excerpt:[
+      `Somewhere, to what remote and fearsome region I know not, Denys Barry has gone. I was with him the last night he lived among men, and heard his screams when the thing came to him; but all the peasants and police in County Meath could never find him, or the others, though they searched long and far. And now I shudder when I hear the frogs piping in swamps, or see the moon in lonely places.`,
+      `I had known Denys Barry well in America, where he had grown rich, and had congratulated him when he bought back the old castle by the bog at sleepy Kilderry. It was from Kilderry that his father had come, and it was there that he wished to enjoy his wealth among ancestral scenes. Men of his blood had once ruled over Kilderry and built and dwelt in the castle, but those days were very remote, so that for generations the castle had been empty and decaying. After he went to Ireland Barry wrote me often, and told me how under his care the grey castle was rising tower by tower to its ancient splendour; how the ivy was climbing slowly over the restored walls as it had climbed so many centuries ago, and how the peasants blessed him for bringing back the old days with his gold from over the sea. But in time there came troubles, and the peasants ceased to bless him, and fled away instead as from a doom. And then he sent a letter and asked me to visit him, for he was lonely in the castle with no one to speak to save the new servants and labourers he had brought from the north.`,
+      `The bog was the cause of all these troubles, as Barry told me the night I came to the castle. I had reached Kilderry in the summer sunset, as the gold of the sky lighted the green of the hills and groves and the blue of the bog, where on a far islet a strange olden ruin glistened spectrally. That sunset was very beautiful, but the peasants at Ballylough had warned me against it and said that Kilderry had become accursed, so that I almost shuddered to see the high turrets of the castle gilded with fire. Barry's motor had met me at the Ballylough station, for Kilderry is off the railway. The villagers had shunned the car and the driver from the north, but had whispered to me with pale faces when they saw I was going to Kilderry. And that night, after our reunion, Barry told me why.`
+    ]
   },
   {
     id:"dream-quest-of-kadath",
@@ -1892,7 +2113,13 @@ const STORIES = [
     publication:"The United Amateur, Nov. 1919",
     characters:[],
     locations:["cathuria"],
-    synopsis:"A lighthouse keeper boards a ghostly vessel that appears only under the full moon, and sails with its silent captain through a string of increasingly perfect dream-lands before growing restless with even the best of them. Pushing on toward a legendary land no other passenger has ever asked to see costs him the ship, the captain, and the ocean's voice all at once — and leaves him back at his lighthouse with no proof anything happened at all, except that it stopped happening."
+    synopsis:"A lighthouse keeper boards a ghostly vessel that appears only under the full moon, and sails with its silent captain through a string of increasingly perfect dream-lands before growing restless with even the best of them. Pushing on toward a legendary land no other passenger has ever asked to see costs him the ship, the captain, and the ocean's voice all at once — and leaves him back at his lighthouse with no proof anything happened at all, except that it stopped happening.",
+    excerpt:[
+      `I am Basil Elton, keeper of the North Point light that my father and grandfather kept before me. Far from the shore stands the grey lighthouse, above sunken slimy rocks that are seen when the tide is low, but unseen when the tide is high. Past that beacon for a century have swept the majestic barques of the seven seas. In the days of my grandfather there were many; in the days of my father not so many; and now there are so few that I sometimes feel strangely alone, as though I were the last man on our planet.`,
+      `From far shores came those white-sailed argosies of old; from far Eastern shores where warm suns shine and sweet odours linger about strange gardens and gay temples. The old captains of the sea came often to my grandfather and told him of these things, which in turn he told to my father, and my father told to me in the long autumn evenings when the wind howled eerily from the East. And I have read more of these things, and of many things besides, in the books men gave me when I was young and filled with wonder.`,
+      `But more wonderful than the lore of old men and the lore of books is the secret lore of ocean. Blue, green, grey, white, or black; smooth, ruffled, or mountainous; that ocean is not silent. All my days have I watched it and listened to it, and I know it well. At first it told to me only the plain little tales of calm beaches and near ports, but with the years it grew more friendly and spoke of other things; of things more strange and more distant in space and in time. Sometimes at twilight the grey vapours of the horizon have parted to grant me glimpses of the ways beyond; and sometimes at night the deep waters of the sea have grown clear and phosphorescent, to grant me glimpses of the ways beneath. And these glimpses have been as often of the ways that were and the ways that might be, as of the ways that are; for ocean is more ancient than the mountains, and freighted with the memories and the dreams of Time.`,
+      `Out of the South it was that the White Ship used to come when the moon was full and high in the heavens. Out of the South it would glide very smoothly and silently over the sea. And whether the sea was rough or calm, and whether the wind was friendly or adverse, it would always glide smoothly and silently, its sails distant and its long strange tiers of oars moving rhythmically. One night I espied upon the deck a man, bearded and robed, and he seemed to beckon me to embark for fair unknown shores. Many times afterward I saw him under the full moon, and ever did he beckon me.`
+    ]
   },
   {
     id:"celephais",
@@ -1903,7 +2130,11 @@ const STORIES = [
     publication:"The Rainbow, May 1922",
     characters:["kuranes"],
     locations:["celephais-city"],
-    synopsis:"A dreamer who first visited a radiant valley city as a boy spends the rest of his life trying to dream his way back to it, eventually losing the money, the drugs, and the patience of everyone around him in the attempt. A cortege finally arrives to carry him back for good, on the same afternoon a nameless body washes up on the rocks below the house he could no longer afford."
+    synopsis:"A dreamer who first visited a radiant valley city as a boy spends the rest of his life trying to dream his way back to it, eventually losing the money, the drugs, and the patience of everyone around him in the attempt. A cortege finally arrives to carry him back for good, on the same afternoon a nameless body washes up on the rocks below the house he could no longer afford.",
+    excerpt:[
+      `In a dream Kuranes saw the city in the valley, and the sea-coast beyond, and the snowy peak overlooking the sea, and the gaily painted galleys that sail out of the harbour toward the distant regions where the sea meets the sky. In a dream it was also that he came by his name of Kuranes, for when awake he was called by another name. Perhaps it was natural for him to dream a new name; for he was the last of his family, and alone among the indifferent millions of London, so there were not many to speak to him and remind him who he had been. His money and lands were gone, and he did not care for the ways of people about him, but preferred to dream and write of his dreams. What he wrote was laughed at by those to whom he shewed it, so that after a time he kept his writings to himself, and finally ceased to write. The more he withdrew from the world about him, the more wonderful became his dreams; and it would have been quite futile to try to describe them on paper. Kuranes was not modern, and did not think like others who wrote. Whilst they strove to strip from life its embroidered robes of myth, and to shew in naked ugliness the foul thing that is reality, Kuranes sought for beauty alone. When truth and experience failed to reveal it, he sought it in fancy and illusion, and found it on his very doorstep, amid the nebulous memories of childhood tales and dreams.`,
+      `There are not many persons who know what wonders are opened to them in the stories and visions of their youth; for when as children we listen and dream, we think but half-formed thoughts, and when as men we try to remember, we are dulled and prosaic with the poison of life. But some of us awake in the night with strange phantasms of enchanted hills and gardens, of fountains that sing in the sun, of golden cliffs overhanging murmuring seas, of plains that stretch down to sleeping cities of bronze and stone, and of shadowy companies of heroes that ride caparisoned white horses along the edges of thick forests; and then we know that we have looked back through the ivory gates into that world of wonder which was ours before we were wise and unhappy.`
+    ]
   },
   {
     id:"quest-of-iranon",
@@ -1936,7 +2167,13 @@ const STORIES = [
     publication:"The Tryout, Oct. 1921",
     characters:["maenalus-tree"],
     locations:["mount-maenalus"],
-    synopsis:"Two celebrated Arcadian sculptors, inseparable despite opposite temperaments, are commissioned to compete for the same statue of Tyché. One falls suddenly and mysteriously ill and dies, asking only that olive twigs from their shared grove be buried at his head. An unnaturally vigorous tree grows from the grave within the year, and when a storm brings one of its branches down through his surviving partner's workshop, both the finished statue and its sculptor are lost without further explanation on file."
+    synopsis:"Two celebrated Arcadian sculptors, inseparable despite opposite temperaments, are commissioned to compete for the same statue of Tyché. One falls suddenly and mysteriously ill and dies, asking only that olive twigs from their shared grove be buried at his head. An unnaturally vigorous tree grows from the grave within the year, and when a storm brings one of its branches down through his surviving partner's workshop, both the finished statue and its sculptor are lost without further explanation on file.",
+    excerpt:[
+      `"Fata viam invenient."`,
+      `On a verdant slope of Mount Maenalus, in Arcadia, there stands an olive grove about the ruins of a villa. Close by is a tomb, once beautiful with the sublimest sculptures, but now fallen into as great decay as the house. At one end of that tomb, its curious roots displacing the time-stained blocks of Pentelic marble, grows an unnaturally large olive tree of oddly repellent shape; so like to some grotesque man, or death-distorted body of a man, that the country folk fear to pass it at night when the moon shines faintly through the crooked boughs. Mount Maenalus is a chosen haunt of dreaded Pan, whose queer companions are many, and simple swains believe that the tree must have some hideous kinship to these weird Panisci; but an old bee-keeper who lives in the neighbouring cottage told me a different story.`,
+      `Many years ago, when the hillside villa was new and resplendent, there dwelt within it the two sculptors Kalos and Musides. From Lydia to Neapolis the beauty of their work was praised, and none dared say that the one excelled the other in skill. The Hermes of Kalos stood in a marble shrine in Corinth, and the Pallas of Musides surmounted a pillar in Athens, near the Parthenon. All men paid homage to Kalos and Musides, and marvelled that no shadow of artistic jealousy cooled the warmth of their brotherly friendship.`,
+      `But though Kalos and Musides dwelt in unbroken harmony, their natures were not alike. Whilst Musides revelled by night amidst the urban gaieties of Tegea, Kalos would remain at home; stealing away from the sight of his slaves into the cool recesses of the olive grove. There he would meditate upon the visions that filled his mind, and there devise the forms of beauty which later became immortal in breathing marble. Idle folk, indeed, said that Kalos conversed with the spirits of the grove, and that his statues were but images of the fauns and dryads he met there—for he patterned his work after no living model.`
+    ]
   },
   {
     id:"the-other-gods",
@@ -1958,7 +2195,11 @@ const STORIES = [
     publication:"National Amateur, May 1923",
     characters:["hypnos-entity"],
     locations:["kent-tower-studio"],
-    synopsis:"A sculptor recounts a two-year friendship built entirely around chasing deeper and stranger dream-states with a companion who seemed to already know the way there. Their explorations stop the night the companion goes further than the narrator is able to follow, and stop for good after a final, unwitnessed night that leaves the narrator's mind permanently damaged and his friend replaced, in the room where he'd been sleeping, by a marble statue carved with a single Greek word."
+    synopsis:"A sculptor recounts a two-year friendship built entirely around chasing deeper and stranger dream-states with a companion who seemed to already know the way there. Their explorations stop the night the companion goes further than the narrator is able to follow, and stop for good after a final, unwitnessed night that leaves the narrator's mind permanently damaged and his friend replaced, in the room where he'd been sleeping, by a marble statue carved with a single Greek word.",
+    excerpt:[
+      `May the merciful gods, if indeed there be such, guard those hours when no power of the will, or drug that the cunning of man devises, can keep me from the chasm of sleep. Death is merciful, for there is no return therefrom, but with him who has come back out of the nethermost chambers of night, haggard and knowing, peace rests nevermore. Fool that I was to plunge with such unsanctioned phrensy into mysteries no man was meant to penetrate; fool or god that he was—my only friend, who led me and went before me, and who in the end passed into terrors which may yet be mine.`,
+      `We met, I recall, in a railway station, where he was the centre of a crowd of the vulgarly curious. He was unconscious, having fallen in a kind of convulsion which imparted to his slight black-clad body a strange rigidity. I think he was then approaching forty years of age, for there were deep lines in the face, wan and hollow-cheeked, but oval and actually beautiful; and touches of grey in the thick, waving hair and small full beard which had once been of the deepest raven black. His brow was white as the marble of Pentelicus, and of a height and breadth almost godlike. I said to myself, with all the ardour of a sculptor, that this man was a faun's statue out of antique Hellas, dug from a temple's ruins and brought somehow to life in our stifling age only to feel the chill and pressure of devastating years. And when he opened his immense, sunken, and wildly luminous black eyes I knew he would be thenceforth my only friend—the only friend of one who had never possessed a friend before—for I saw that such eyes must have looked fully upon the grandeur and the terror of realms beyond normal consciousness and reality; realms which I had cherished in fancy, but vainly sought. So as I drove the crowd away I told him he must come home with me and be my teacher and leader in unfathomed mysteries, and he assented without speaking a word. Afterward I found that his voice was music—the music of deep viols and of crystalline spheres. We talked often in the night, and in the day, when I chiselled busts of him and carved miniature heads in ivory to immortalise his different expressions.`
+    ]
   },
   {
     id:"in-the-vault",
@@ -1969,7 +2210,13 @@ const STORIES = [
     publication:"Tryout, Nov. 1925",
     characters:["asaph-sawyer"],
     locations:["peck-valley"],
-    synopsis:"A careless small-town undertaker, sealed by accident inside the receiving tomb he's been using as makeshift overflow storage, escapes only by standing on the nearest coffin to reach a transom window — and only afterward, once his ankles are examined, does anyone establish exactly whose coffin that was, and why it fit him so precisely."
+    synopsis:"A careless small-town undertaker, sealed by accident inside the receiving tomb he's been using as makeshift overflow storage, escapes only by standing on the nearest coffin to reach a transom window — and only afterward, once his ankles are examined, does anyone establish exactly whose coffin that was, and why it fit him so precisely.",
+    excerpt:[
+      `There is nothing more absurd, as I view it, than that conventional association of the homely and the wholesome which seems to pervade the psychology of the multitude. Mention a bucolic Yankee setting, a bungling and thick-fibred village undertaker, and a careless mishap in a tomb, and no average reader can be brought to expect more than a hearty albeit grotesque phase of comedy. God knows, though, that the prosy tale which George Birch's death permits me to tell has in it aspects beside which some of our darkest tragedies are light.`,
+      `Birch acquired a limitation and changed his business in 1881, yet never discussed the case when he could avoid it. Neither did his old physician Dr. Davis, who died years ago. It was generally stated that the affliction and shock were results of an unlucky slip whereby Birch had locked himself for nine hours in the receiving tomb of Peck Valley Cemetery, escaping only by crude and disastrous mechanical means; but while this much was undoubtedly true, there were other and blacker things which the man used to whisper to me in his drunken delirium toward the last.`,
+      `Birch, before 1881, had been the village undertaker of Peck Valley; and was a very calloused and primitive specimen even as such specimens go. The practices I heard attributed to him would be unbelievable today, at least in a city; and even Peck Valley would have shuddered a bit had it known the easy ethics of its mortuary artist in such debatable matters as the ownership of costly "laying-out" apparel invisible beneath the casket's lid, and the degree of dignity to be maintained in posing and adapting the unseen members of lifeless tenants to containers not always calculated with sublimest accuracy.`,
+      `Just where to begin Birch's story I can hardly decide, since I am no practiced teller of tales. I suppose one should start in the cold December of 1880, when the ground froze and the cemetery delvers found they could dig no more graves till spring. Fortunately the village was small and the death rate low, so that it was possible to give all of Birch's inanimate charges a temporary haven in the single antiquated receiving tomb. The undertaker grew doubly lethargic in the bitter weather, and seemed to outdo even himself in carelessness. Never did he knock together flimsier and ungainlier caskets, or disregard more flagrantly the needs of the rusty lock on the tomb door which he slammed open and shut with such nonchalant abandon.`
+    ]
   },
   {
     id:"through-gates-of-silver-key",
@@ -3096,7 +3343,22 @@ function entitiesAtLocation(locId){
      UNACCOUNTED — no explanation on file for how close it got.
    No embedded clips and no hosted poster art — card art follows the same
    img-field/placeholder convention as every other record type, and the
-   only third-party touch point is a plain outbound IMDb link. */
+   only third-party touch point is a plain outbound IMDb link.
+
+   A second grouping lives in this same array — Unfiled Occurrences: films
+   that dramatize no chronicle on file, yet independently arrive at
+   something the Archive already holds a record of. Marked with
+   occurrenceType:"unfiled" rather than a new data structure. Three more
+   statuses apply only to this grouping (UNACCOUNTED above still applies
+   here too):
+     CORROBORATING — the film independently arrives at a specific entity
+                     or detail already on file, closely enough that
+                     coincidence alone is hard to credit.
+     CONSISTENT    — matches the Archive's general tone, phenomena, or
+                     cosmology without pinning to any one entity or
+                     chronicle.
+     DISPUTED      — analysts are split on whether the resemblance is
+                     genuine or coincidental; filed pending review. */
 const SCREEN_RECORDS = [
   {
     id:"the-call-of-cthulhu-2005",
@@ -3325,12 +3587,113 @@ const SCREEN_RECORDS = [
     entityIds:[],
     imdbUrl:"https://www.imdb.com/title/tt0279688/",
     note:"The original account is a quiet one — a rural asylum inmate, a doctor who starts dreaming what the patient dreams, a mind that turns out not to be his own. The production relocates all of it to a considerably louder register: cortex probes, skull trephination, an intern's escalating experiments played for body-horror shock rather than the source's slow dread. Whatever discretion the case once had did not survive the adaptation."
+  },
+
+  /* ---- Unfiled Occurrences ----
+     A second, distinct grouping within the same array: films that dramatize
+     no chronicle on file, yet arrive independently at something the Archive
+     already holds a record of. No claim of a leak — filed as a second,
+     unrelated data point, not as an adaptation. occurrenceType:"unfiled"
+     marks membership in this section rather than the main table above;
+     chronicleIds/entityIds are allowed to sit empty where no genuine tie
+     exists. See the Screen Records Spec doc for the full inclusion bar. */
+  {
+    id:"underwater-2020",
+    title:"Underwater",
+    year:"2020",
+    director:"William Eubank",
+    productionCompany:"20th Century Fox / Chernin Entertainment",
+    status:"CORROBORATING",
+    occurrenceType:"unfiled",
+    chronicleIds:[],
+    entityIds:["cthulhu"],
+    imdbUrl:"https://www.imdb.com/title/tt5774060/",
+    note:"No chronicle sits behind this one — the account is an invented deep-sea drilling disaster, nothing drawn from any case on file. What earns it a place here regardless is the thing surfacing in the final reel, and the director's own repeated, on-record confirmation outside the film that the creature is meant to be read as Cthulhu specifically, not a generic abyssal horror. The film itself never says the name. The Archive files the two facts — an unconnected production, and a specific identification volunteered afterward — side by side, without further comment on what the coincidence means."
+  },
+  {
+    id:"in-the-mouth-of-madness-1994",
+    title:"In the Mouth of Madness",
+    year:"1994",
+    director:"John Carpenter",
+    productionCompany:"New Line Cinema",
+    status:"UNACCOUNTED",
+    occurrenceType:"unfiled",
+    chronicleIds:[],
+    entityIds:[],
+    imdbUrl:"https://www.imdb.com/title/tt0113409/",
+    note:"An invented account, not a case file on record here: a horror novelist whose books are read by millions, whose fiction turns out, over the course of the picture, to be substantially true, and whose readership begins reshaping itself around that fact well before anyone involved is prepared to admit it. The Archive notes only that this describes a situation it has spent considerable effort not becoming, and declines to elaborate further."
+  },
+  {
+    id:"annihilation-2018",
+    title:"Annihilation",
+    year:"2018",
+    director:"Alex Garland",
+    productionCompany:"Paramount Pictures / Skydance",
+    status:"CONSISTENT",
+    occurrenceType:"unfiled",
+    chronicleIds:[],
+    entityIds:[],
+    imdbUrl:"https://www.imdb.com/title/tt2798920/",
+    note:"No entity or chronicle on file matches anything in this account directly, and nobody involved in its making has cited this Archive's subject matter as a source. The connection here is descent rather than citation, by way of the novel it adapts — itself part of a body of work openly written in a lineage running back through this Archive's own founding cases. Filed as the loosest connection this section allows: a shared cosmology and a shared refusal to explain itself, nothing more specific pinned down."
+  },
+  {
+    id:"the-void-2016",
+    title:"The Void",
+    year:"2016",
+    director:"Steven Kostanski, Jeremy Gillespie",
+    productionCompany:"Cave Painting Pictures / JoBro Productions",
+    status:"CONSISTENT",
+    occurrenceType:"unfiled",
+    chronicleIds:[],
+    entityIds:[],
+    imdbUrl:"https://www.imdb.com/title/tt4255304/",
+    note:"No specific chronicle or dossier behind this one, and the resemblance is atmospheric rather than pinned to a named case: a rural hospital, a robed cult, and geometry that shouldn't hold together the way it does. On record from one of the two directors: the production took shape while he was working at a studio one floor below an unrelated, never-completed Lovecraft adaptation, and has said outright that proximity is where the film's imagery came from. Filed on that basis, at the same general remove as the Archive's other tone-only occurrences."
+  },
+  {
+    id:"the-endless-2017",
+    title:"The Endless",
+    year:"2017",
+    director:"Justin Benson, Aaron Moorhead",
+    productionCompany:"Rustic Films / Snowfort Pictures",
+    status:"CORROBORATING",
+    occurrenceType:"unfiled",
+    chronicleIds:["colour-out-of-space"],
+    entityIds:[],
+    imdbUrl:"https://www.imdb.com/title/tt3986820/",
+    note:"An invented account — two brothers returning to the isolated commune they escaped years before, and finding whatever kept them there still active — with no dramatization of any chronicle on file. Unlike most entries in this section, the tie here isn't the Archive's own inference: one of the two directors has said on record that certain plot elements were loosely drawn from The Colour Out of Space specifically, by name, ahead of the film's release. Filed with that chronicle tagged accordingly — the first Unfiled Occurrence on record with a named source rather than a coincidence."
+  },
+  {
+    id:"the-empty-man-2020",
+    title:"The Empty Man",
+    year:"2020",
+    director:"David Prior",
+    productionCompany:"20th Century Studios",
+    status:"DISPUTED",
+    occurrenceType:"unfiled",
+    chronicleIds:[],
+    entityIds:[],
+    imdbUrl:"https://www.imdb.com/title/tt5867314/",
+    note:"Adapted from an original comic, not from any case on file, and neither the director nor the comic's writer has gone on record naming this Archive's subject matter as an influence — on that count alone this entry sits on thinner ground than its neighbors above. What keeps it filed rather than dismissed is how consistently outside critics have independently reached for the same comparison anyway, describing its ancient, thought-borne intelligence and the cult built around it in terms usually reserved for this Archive's own case files. No confirmation, no denial, genuine disagreement among analysts about whether that's a real correspondence or an inherited house style of horror criticism. Filed pending further review, not as a settled call."
+  },
+  {
+    id:"the-lighthouse-2019",
+    title:"The Lighthouse",
+    year:"2019",
+    director:"Robert Eggers",
+    productionCompany:"A24 / RT Features",
+    status:"CONSISTENT",
+    occurrenceType:"unfiled",
+    chronicleIds:[],
+    entityIds:[],
+    imdbUrl:"https://www.imdb.com/title/tt7984734/",
+    note:"On record from the director himself, named alongside M.R. James, Arthur Machen, Algernon Blackwood, and Poe as part of a shared reading he and his brother grew up on. He has said just as plainly, in the same breath, that he deliberately steered away from anything resembling this Archive's own explicit style, favoring suggestion over description. A named citation, then, but a qualified one — an acknowledged influence the production then spent real effort not resembling too closely. Nothing here pins to a single entity or chronicle: a glimpsed mermaid, a beached horror on the rocks, a forbidden light at the top of a tower that ends the man who finally reaches it. General enough to file at the same remove as the Archive's other tone-only occurrences."
   }
 ];
 
 function screenRecordById(id){ return SCREEN_RECORDS.find(r=>r.id===id); }
 function screenRecordsForChronicle(storyId){ return SCREEN_RECORDS.filter(r=>(r.chronicleIds||[]).includes(storyId)); }
 function screenRecordsForEntity(entityId){ return SCREEN_RECORDS.filter(r=>(r.entityIds||[]).includes(entityId)); }
+function screenRecordKicker(r){ return (r.occurrenceType === "unfiled" ? "Unfiled Occurrence" : "Screen Record") + " · " + r.year; }
 
 /* ============ FIELD REFERENCE LIBRARY ============
    Real, in-print (or freely available) editions that collect the chronicles
@@ -3669,12 +4032,14 @@ function render(){
     if(q){
       items = items.filter(r=> matches(r.title, q) || matches(r.director, q) || matches(r.productionCompany, q) || matches(r.status, q));
     }
-    countNote.textContent = `${items.length} screen record${items.length===1?"":"s"} on file`;
+    const adaptations = items.filter(r=>r.occurrenceType !== "unfiled");
+    const occurrences = items.filter(r=>r.occurrenceType === "unfiled");
+    countNote.textContent = `${adaptations.length} screen record${adaptations.length===1?"":"s"}, ${occurrences.length} unfiled occurrence${occurrences.length===1?"":"s"}, on file`;
     if(items.length === 0){
       grid.innerHTML = `<div class="empty"><strong>No matching screen record found</strong>Try a different title, director, or status.</div>`;
       return;
     }
-    items.forEach((r,i)=>{
+    const renderScreenCard = (r,i) => {
       const card = document.createElement("article");
       card.className = "card locale-card";
       card.style.transform = `rotate(${rotationFor(i)}deg)`;
@@ -3686,16 +4051,27 @@ function render(){
       ];
       card.innerHTML = `
         <div class="locale-stamp">${localeStampSvg(r.status, r.id, "MISKATONIC ARCHIVE", "REELS DIVISION")}</div>
-        <p class="card-kicker">Screen Record · ${r.year}</p>
+        <p class="card-kicker">${screenRecordKicker(r)}</p>
         <h3>${r.title}</h3>
         <p class="meta">Dir. ${r.director}</p>
         <p class="snip">${r.note}</p>
-        <div class="chips">${tieIns.map(t=>`<span class="chip">${t}</span>`).join("")}</div>
+        <div class="chips">${tieIns.length ? tieIns.map(t=>`<span class="chip">${t}</span>`).join("") : `<span class="chip">No chronicle or dossier tie</span>`}</div>
       `;
       card.addEventListener("click", ()=>openScreenRecord(r.id));
       card.addEventListener("keydown", ev=>{ if(ev.key==="Enter") openScreenRecord(r.id); });
       grid.appendChild(card);
-    });
+    };
+    adaptations.forEach((r,i)=>renderScreenCard(r,i));
+    if(occurrences.length){
+      const divider = document.createElement("div");
+      divider.className = "occurrences-divider";
+      divider.innerHTML = `
+        <h3>Unfiled Occurrences</h3>
+        <p>Films that dramatize no chronicle on file, yet arrive independently at something the Archive already holds a record of. Filed as a second, unrelated data point — not as an adaptation, and not as evidence of anything beyond a coincidence severe enough to note.</p>
+      `;
+      grid.appendChild(divider);
+      occurrences.forEach((r,i)=>renderScreenCard(r, adaptations.length+i));
+    }
   } else {
     renderFieldReference();
   }
@@ -3871,7 +4247,7 @@ function renderGlobalSearch(q){
       ];
       card.innerHTML = `
         <div class="locale-stamp">${localeStampSvg(r.status, r.id, "MISKATONIC ARCHIVE", "REELS DIVISION")}</div>
-        <p class="card-kicker">Screen Record · ${r.year}</p>
+        <p class="card-kicker">${screenRecordKicker(r)}</p>
         <h3>${r.title}</h3>
         <p class="meta">Dir. ${r.director}</p>
         <p class="snip">${r.note}</p>
@@ -4048,11 +4424,15 @@ function openStory(id){
     <p class="modal-kicker">Chronicle</p>
     <h2>${s.title}</h2>
     <p class="modal-meta">Written ${s.yearWritten} &nbsp;·&nbsp; First published ${s.yearPublished} &nbsp;·&nbsp; ${s.publication}</p>
-    ${s.fullText
-      ? `<button class="read-btn" id="readFullBtn">Read Manuscript Excerpt ↗</button>`
-      : s.sourceUrl
-        ? `<a class="read-btn read-btn-external" href="${s.sourceUrl}" target="_blank" rel="noopener noreferrer">Read Full Text at hplovecraft.com ↗</a>`
-        : `<p class="no-text-note">Full manuscript not yet transcribed into the archive.</p>`}
+    <div class="chronicle-cta-row">
+      ${s.excerpt
+        ? `<button class="read-btn" id="readFullBtn">Read Excerpt ↗</button>`
+        : s.sourceUrl
+          ? `<a class="read-btn read-btn-external" href="${s.sourceUrl}" target="_blank" rel="noopener noreferrer">Read Full Text at hplovecraft.com ↗</a>`
+          : `<p class="no-text-note">Full manuscript not yet transcribed into the archive.</p>`}
+      <a class="read-btn case-file-btn-secondary read-btn-external" href="${caseFileKofiUrl(s.id)}" target="_blank" rel="noopener noreferrer">Request Case File ↗</a>
+    </div>
+    <p class="correspondent-note">Every case file includes a blank bookplate to sign by hand once printed — no name needed at checkout. <a class="correspondent-example-link" href="example-case-file.html" target="_blank" rel="noopener noreferrer">See an example case file ↗</a></p>
     ${storyArtworkHtml(s)}
     <div class="modal-section">
       <h4>Synopsis</h4>
@@ -4162,7 +4542,7 @@ function openScreenRecord(id){
   modalBody.innerHTML = `
     <button class="modal-close" id="closeBtn" aria-label="Close">✕</button>
     <div class="locale-classified-stamp">${localeStampSvg(r.status, r.id + "-modal", "MISKATONIC ARCHIVE", "REELS DIVISION")}</div>
-    <p class="modal-kicker">Screen Record · ${r.year}</p>
+    <p class="modal-kicker">${screenRecordKicker(r)}</p>
     <h2>${r.title}</h2>
     <p class="modal-meta">Dir. ${r.director} &nbsp;·&nbsp; ${r.productionCompany}</p>
     <a class="read-btn read-btn-external" href="${r.imdbUrl}" target="_blank" rel="noopener noreferrer">View Record at IMDb ↗</a>
@@ -4257,6 +4637,17 @@ function closeModal(){
 /* ---------- Contribute to the Archive ---------- */
 const KOFI_URL = "https://ko-fi.com/themiskatonicarchive";
 
+/* Per-chronicle Ko-fi Shop item links (each item's own "Share this" short link,
+   e.g. https://ko-fi.com/s/xxxxxxxxxx). Add an entry as Darren supplies each
+   chronicle's shop-item link; any chronicle without one here falls back to the
+   general Ko-fi page via caseFileKofiUrl() below. */
+const KOFI_SHOP_LINKS = {
+  // "call-of-cthulhu": "https://ko-fi.com/s/xxxxxxxxxx",
+};
+function caseFileKofiUrl(storyId){
+  return KOFI_SHOP_LINKS[storyId] || KOFI_URL;
+}
+
 const CONTRIBUTE_TIERS = [
   { amount:"£3",  label:"Provision a Sledge Dog",              note:"the smallest kindness on the ledger" },
   { amount:"£7",  label:"Fund an Aeroplane Survey Flight",      note:"reconnaissance, weather permitting" },
@@ -4330,9 +4721,10 @@ function chapterizeBlocks(blocks){
 
 function openReader(storyId){
   const s = storyById(storyId);
-  if(!s || !s.fullText) return;
+  const blocks = s && (s.fullText || (s.excerpt ? s.excerpt.map(p=>({type:'para', text:p})) : null));
+  if(!blocks) return;
   currentReaderStoryId = storyId;
-  currentChapters = chapterizeBlocks(s.fullText);
+  currentChapters = chapterizeBlocks(blocks);
   currentChapterIdx = 0;
   readerTopTitle.textContent = s.title;
   renderChapter();
@@ -4376,7 +4768,7 @@ function renderChapter(){
       <span class="chapter-count">Section ${currentChapterIdx + 1} of ${currentChapters.length}</span>
       <button class="chapter-btn" id="nextChBtn" ${isLast ? "disabled" : ""}>Next →</button>
     </div>
-    ${isLast ? `<p class="ms-endmark">❦ End of excerpt ❦</p>` : ""}
+    ${isLast ? readerEndHtml(s) : ""}
   `;
 
   manuscriptBody.querySelectorAll(".toc-pill").forEach(btn=>{
@@ -4394,8 +4786,24 @@ function renderChapter(){
   if(nextBtn) nextBtn.addEventListener("click", ()=>{
     if(currentChapterIdx < currentChapters.length - 1){ currentChapterIdx++; renderChapter(); readerOverlay.scrollTop = 0; }
   });
-
   readerOverlay.scrollTop = 0;
+}
+
+function readerEndHtml(s){
+  const kofiUrl = caseFileKofiUrl(s.id);
+  return `
+    <div class="ms-endstamp"><span class="ms-endstamp-mark">END OF EXCERPT</span></div>
+    <div class="case-file-cta">
+      <p class="case-file-cta-head">Complete Case File on Record</p>
+      <p class="case-file-cta-body">The full transcription is held in Special Collections. Patrons of the Archive receive the complete case file library as part of membership; anyone may request this title individually for a nominal one-off due.</p>
+      <div class="case-file-cta-row">
+        <a class="read-btn case-file-btn-secondary read-btn-external" href="${kofiUrl}" target="_blank" rel="noopener noreferrer">Request Case File ↗</a>
+        ${s.sourceUrl ? `<a class="read-btn read-btn-external" href="${s.sourceUrl}" target="_blank" rel="noopener noreferrer">Read Full Text at hplovecraft.com ↗</a>` : ""}
+        <a class="read-btn read-btn-external" href="${KOFI_URL}" target="_blank" rel="noopener noreferrer">Become a Patron ↗</a>
+      </div>
+      <p class="correspondent-note">Every case file includes a blank bookplate to sign by hand once printed — no name needed at checkout. <a class="correspondent-example-link" href="example-case-file.html" target="_blank" rel="noopener noreferrer">See an example case file ↗</a></p>
+    </div>
+  `;
 }
 
 function closeReader(){
