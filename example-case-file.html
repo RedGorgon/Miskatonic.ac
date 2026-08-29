@@ -35,10 +35,37 @@
     max-width:640px; margin:0 auto 40px;
   }
   .frame{
-    display:block; width:100%; max-width:720px; margin:0 auto 36px;
+    display:block; width:100%; max-width:720px; margin:0 auto 14px;
     box-shadow:0 30px 70px rgba(0,0,0,0.6), 0 0 0 1px rgba(233,225,201,0.08);
+    cursor:zoom-in;
+    transition:box-shadow .15s ease;
   }
+  .frame:hover{ box-shadow:0 30px 70px rgba(0,0,0,0.7), 0 0 0 1px rgba(233,225,201,0.18); }
   .frame img{ display:block; width:100%; height:auto; }
+  .zoom-hint{
+    font-family:'Space Mono', monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--fog-dim); margin:0 0 36px;
+  }
+
+  .lightbox{
+    position:fixed; inset:0; z-index:1000; display:none;
+    align-items:center; justify-content:center; padding:36px;
+    background:rgba(6,11,9,0.94); cursor:zoom-out;
+  }
+  .lightbox.open{ display:flex; }
+  .lightbox img{
+    display:block; max-width:94vw; max-height:92vh; width:auto; height:auto;
+    box-shadow:0 30px 90px rgba(0,0,0,0.75), 0 0 0 1px rgba(233,225,201,0.1);
+    cursor:default;
+  }
+  .lightbox-close{
+    position:fixed; top:20px; right:22px; z-index:1001;
+    width:38px; height:38px; border-radius:50%;
+    background:rgba(233,225,201,0.08); border:1px solid rgba(233,225,201,0.25); color:var(--parchment);
+    font-family:'Space Mono', monospace; font-size:16px; line-height:1; cursor:pointer;
+  }
+  .lightbox-close:hover{ background:rgba(233,225,201,0.16); }
+
   .actions{ display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-bottom:44px; }
   .btn{
     font-family:'Space Mono', monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase;
@@ -63,9 +90,10 @@
   <h1>Inside a Complete Case File</h1>
   <p class="lead">Every case file reproduces the chronicle's complete text in full &mdash; not an excerpt &mdash; alongside its provenance, chronology, and dossier pages. Below: a genuine sample of that layout, drawn from across the Archive's shipped case files, with names, dates and passages redacted.</p>
 
-  <div class="frame">
+  <div class="frame" id="frameTrigger">
     <img src="images/inside-a-complete-case-file.png" alt="A scattered collage of real pages from a Miskatonic Archive case file — cover, provenance, chronology, dossier and locality entries, primary-source text, and closing cross-reference, with some passages redacted.">
   </div>
+  <p class="zoom-hint">Click to enlarge</p>
 
   <div class="actions">
     <a class="btn btn-primary" href="https://ko-fi.com/themiskatonicarchive" target="_blank" rel="noopener noreferrer">Become a Patron ↗</a>
@@ -74,5 +102,35 @@
 
   <p class="note">Complete case files are a patron perk of the Archive's recurring Ko-fi tier, and are also available individually &mdash; see each chronicle's own "Request Case File" link. Every copy includes a blank bookplate to sign by hand once printed; no name is taken at checkout.</p>
 </div>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">&#10005;</button>
+  <img id="lightboxImg" src="images/inside-a-complete-case-file.png" alt="Full-resolution view of the case file sample collage.">
+</div>
+
+<script>
+  const frameTrigger = document.getElementById('frameTrigger');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxClose = document.getElementById('lightboxClose');
+
+  function openLightbox(){
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox(){
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  frameTrigger.addEventListener('click', openLightbox);
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => {
+    if(e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+  });
+</script>
+
 </body>
 </html>
