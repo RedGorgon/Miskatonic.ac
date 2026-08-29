@@ -3923,8 +3923,19 @@ const PRINT_EDITIONS = [
     excludedNote:null,
     note:"Penguin's Joshi-edited collection anchors the earliest cases on file. Every chronicle in this volume is already catalogued here, cover to cover.",
     regions:{
-      us:{title:"The Call of Cthulhu and Other Weird Stories (Penguin Classics Deluxe Edition)", publisher:"Penguin Classics", url:"https://bookshop.org/p/books/the-call-of-cthulhu-and-other-weird-stories-penguin-classics-deluxe-edition-h-p-lovecraft/11702567"},
+      us:{title:"The Call of Cthulhu and Other Weird Stories (Penguin Twentieth-Century Classics)", publisher:"Penguin Classics", url:"https://bookshop.org/a/127679/9780141182346"},
       uk:{title:"The Call of Cthulhu and Other Weird Stories (Penguin Classics Deluxe Edition)", publisher:"Penguin Classics", url:"https://uk.bookshop.org/p/books/the-call-of-cthulhu-and-other-weird-stories-penguin-classics-deluxe-edition-h-p-lovecraft/10956"}
+    }
+  },
+  {
+    id:"penguin-vol-1-bibliotech",
+    label:"Field Reference Vol. I — Alternate Binding",
+    totalInVolume:18,
+    chronicleIds:["dagon","statement-of-randolph-carter","arthur-jermyn","celephais","nyarlathotep-poem","picture-in-the-house","the-outsider","herbert-west-reanimator","the-hound","rats-in-the-walls","the-festival","he","cool-air","call-of-cthulhu","colour-out-of-space","whisperer-in-darkness","shadow-over-innsmouth","haunter-of-the-dark"],
+    excludedNote:null,
+    note:"A separate hardcover printing of the same title under a different publisher, found alongside the standard Penguin paperback above. The Archive hasn't independently checked this specific printing's table of contents against its own — filed here as a second binding option rather than a verified twin, the same caution the Complete Fiction listing below already carries for its own alternate printings.",
+    regions:{
+      us:{title:"The Call of Cthulhu and Other Weird Stories (Bibliotech Press)", publisher:"Bibliotech Press", url:"https://bookshop.org/a/127679/9798888305218"}
     }
   },
   {
@@ -3935,7 +3946,7 @@ const PRINT_EDITIONS = [
     excludedNote:null,
     note:"The Dreamlands cycle and the full Randolph Carter arc both live in this volume, including the collaborative Silver Key sequel the Archive filed as a deliberate exception to its usual authorship rule. Complete, cover to cover, as of this pass.",
     regions:{
-      us:{title:"The Dreams in the Witch House and Other Weird Stories", publisher:"Penguin Classics", url:"https://bookshop.org/p/books/the-dreams-in-the-witch-house-and-other-weird-stories-h-p-lovecraft/45e2f2b0301cebde"},
+      us:{title:"The Dreams in the Witch House and Other Weird Stories", publisher:"Penguin Classics", url:"https://bookshop.org/a/127679/9780142437957"},
       uk:{title:"The Dreams in the Witch House and Other Weird Stories", publisher:"Penguin Classics", url:"https://uk.bookshop.org/p/books/the-dreams-in-the-witch-house-and-other-weird-stories-h-p-lovecraft/10957"}
     }
   },
@@ -3947,8 +3958,19 @@ const PRINT_EDITIONS = [
     excludedNote:"The volume's twelfth tale, “Under the Pyramids” — Lovecraft's 1924 ghostwriting job for Houdini — sits outside the Archive's scope and isn't catalogued here. Every other tale in the volume is.",
     note:"Runs from the earliest cases on file through the Dunwich and Doorstep files.",
     regions:{
-      us:{title:"The Thing on the Doorstep and Other Weird Stories", publisher:"Penguin Classics", url:"https://bookshop.org/p/books/the-thing-on-the-doorstep-and-other-weird-stories-h-p-lovecraft/11651590"},
+      us:{title:"The Thing on the Doorstep and Other Weird Stories", publisher:"Penguin Classics", url:"https://bookshop.org/a/127679/9780142180037"},
       uk:{title:"The Thing on the Doorstep and Other Weird Stories", publisher:"Penguin Classics", url:"https://uk.bookshop.org/p/books/the-thing-on-the-doorstep-and-other-weird-stories-h-p-lovecraft/2357248"}
+    }
+  },
+  {
+    id:"penguin-vol-3-delToro",
+    label:"Field Reference Vol. III — Alternate Binding",
+    totalInVolume:12,
+    chronicleIds:["the-tomb","beyond-wall-of-sleep","white-ship","the-temple","quest-of-iranon","music-of-erich-zann","pickmans-model","charles-dexter-ward","dunwich-horror","mountains-of-madness","thing-on-doorstep"],
+    excludedNote:"The volume's twelfth tale, “Under the Pyramids” — Lovecraft's 1924 ghostwriting job for Houdini — sits outside the Archive's scope and isn't catalogued here. Every other tale in the volume is.",
+    note:"A hardcover Penguin Horror printing of the same title, curated with an introduction by Guillermo del Toro. The Archive hasn't independently checked this specific printing's table of contents against its own — filed here as a second binding option rather than a verified twin, the same caution the Complete Fiction listing below already carries for its own alternate printings.",
+    regions:{
+      us:{title:"The Thing on the Doorstep and Other Weird Stories (Penguin Horror)", publisher:"Penguin Classics", url:"https://bookshop.org/a/127679/9780143122326"}
     }
   },
   {
@@ -3960,7 +3982,29 @@ const PRINT_EDITIONS = [
     note:"Marketed as the full run in one binding — useful for a reader who'd rather not track down three separate volumes. The Archive hasn't independently verified every chronicle's presence against this specific printing, and flags one thing worth knowing before ordering: the UK and US editions below are genuinely different books from different publishers, not the same title sold on two storefronts. The region toggle above selects the correct one for your address.",
     regions:{
       uk:{title:"H.P. Lovecraft: The Complete Fiction (Barnes & Noble Collectible Editions)", publisher:"Barnes & Noble Collectible Editions", url:"https://uk.bookshop.org/p/books/h-p-lovecraft-barnes-noble-collectible-classics-omnibus-edition-the-complete-fiction-h-p-lovecraft/4592533"},
-      us:{title:"The Complete Fiction of H. P. Lovecraft", publisher:"Chartwell Classics", url:"https://bookshop.org/p/books/the-complete-fiction-of-h-p-lovecraft-h-p-lovecraft/70848e8ff97797ff"}
+      us:{title:"The Complete Fiction of H. P. Lovecraft", publisher:"Chartwell Classics", url:"https://bookshop.org/a/127679/9780785834205"}
+    }
+  },
+  {
+    id:"complete-fiction-benediction-pb",
+    label:"The Complete Fiction — Alternate Binding (Paperback)",
+    totalInVolume:null,
+    chronicleIds:STORIES.map(s=>s.id),
+    excludedNote:null,
+    note:"A separate paperback omnibus under a different publisher, found alongside the Chartwell Classics hardcover above. The Archive hasn't independently verified every chronicle's presence against this specific printing — filed here as a second binding option rather than a verified twin.",
+    regions:{
+      us:{title:"The Complete Fiction of H. P. Lovecraft", publisher:"Benediction Classics", url:"https://bookshop.org/a/127679/9781781398241"}
+    }
+  },
+  {
+    id:"complete-fiction-benediction-hc",
+    label:"The Complete Fiction — Alternate Binding (Hardcover)",
+    totalInVolume:null,
+    chronicleIds:STORIES.map(s=>s.id),
+    excludedNote:null,
+    note:"The same Benediction Classics omnibus as the paperback above, bound in hardcover. The Archive hasn't independently verified every chronicle's presence against this specific printing — filed here as a second binding option rather than a verified twin.",
+    regions:{
+      us:{title:"The Complete Fiction of H. P. Lovecraft", publisher:"Benediction Classics", url:"https://bookshop.org/a/127679/9781781398258"}
     }
   }
 ];
@@ -3975,6 +4019,46 @@ const FREE_EDITION = {
 };
 
 function printEditionById(id){ return PRINT_EDITIONS.find(e=>e.id===id); }
+
+const ILLUSTRATED_EDITIONS = [
+  {
+    id:"baranger-call-of-cthulhu",
+    label:"Illustrated Edition — The Call of Cthulhu",
+    chronicleId:"call-of-cthulhu",
+    note:"A fully illustrated single-chronicle artbook from Baranger, plated throughout rather than lightly decorated. Filed as its own case rather than folded into the bound anthologies above, since it carries only the one chronicle.",
+    regions:{
+      us:{title:"The Call of Cthulhu (Illustrated)", publisher:"Baranger", url:"https://bookshop.org/a/127679/9781624650444"}
+    }
+  },
+  {
+    id:"baranger-dunwich-horror",
+    label:"Illustrated Edition — The Dunwich Horror",
+    chronicleId:"dunwich-horror",
+    note:"A fully illustrated single-chronicle artbook from Baranger, plated throughout rather than lightly decorated. Filed as its own case rather than folded into the bound anthologies above, since it carries only the one chronicle.",
+    regions:{
+      us:{title:"The Dunwich Horror (Illustrated)", publisher:"Baranger", url:"https://bookshop.org/a/127679/9781624650772"}
+    }
+  },
+  {
+    id:"baranger-mountains-of-madness-1",
+    label:"Illustrated Edition — At the Mountains of Madness, Part I",
+    chronicleId:"mountains-of-madness",
+    note:"The chronicle's length split it across two illustrated volumes; this is the first. A fully illustrated artbook from Baranger, plated throughout rather than lightly decorated.",
+    regions:{
+      us:{title:"At the Mountains of Madness, Part I (Illustrated)", publisher:"Baranger", url:"https://bookshop.org/a/127679/9781624650086"}
+    }
+  },
+  {
+    id:"baranger-mountains-of-madness-2",
+    label:"Illustrated Edition — At the Mountains of Madness, Part II",
+    chronicleId:"mountains-of-madness",
+    note:"The second of two illustrated volumes covering this chronicle. A fully illustrated artbook from Baranger, plated throughout rather than lightly decorated.",
+    regions:{
+      us:{title:"At the Mountains of Madness, Part II (Illustrated)", publisher:"Baranger", url:"https://bookshop.org/a/127679/9781624650512"}
+    }
+  }
+];
+function illustratedEditionById(id){ return ILLUSTRATED_EDITIONS.find(e=>e.id===id); }
 
 const REGION_KEY = "miskatonicRegion";
 function getRegionPref(){
@@ -4287,7 +4371,7 @@ function render(){
 }
 
 function renderFieldReference(){
-  countNote.textContent = `${PRINT_EDITIONS.length} bound editions, plus one free edition, on file`;
+  countNote.textContent = `${PRINT_EDITIONS.length} bound editions, ${ILLUSTRATED_EDITIONS.length} illustrated editions, plus one free edition, on file`;
 
   const intro = document.createElement("div");
   intro.className = "fieldref-intro";
@@ -4328,6 +4412,34 @@ function renderFieldReference(){
     card.addEventListener("keydown", ev=>{ if(ev.key==="Enter") openEdition(e.id); });
     grid.appendChild(card);
   });
+
+  if(ILLUSTRATED_EDITIONS.length){
+    const illusDivider = document.createElement("div");
+    illusDivider.className = "occurrences-divider";
+    illusDivider.innerHTML = `
+      <h3>Illustrated Editions</h3>
+      <p>Single-chronicle artbooks, fully plated rather than lightly decorated. Filed separately from the bound anthologies above, since each carries only the one chronicle.</p>
+    `;
+    grid.appendChild(illusDivider);
+    ILLUSTRATED_EDITIONS.forEach((e,i)=>{
+      const r = e.regions[regionPref] || e.regions.uk || e.regions.us;
+      const card = document.createElement("article");
+      card.className = "card";
+      card.style.transform = `rotate(${rotationFor(PRINT_EDITIONS.length+i)}deg)`;
+      card.tabIndex = 0;
+      card.setAttribute("role","button");
+      card.innerHTML = `
+        <p class="card-kicker">${e.label}</p>
+        <h3>${r.title}</h3>
+        <p class="meta">${r.publisher}</p>
+        <p class="snip">${e.note}</p>
+        <div class="chips"><span class="chip">${storyById(e.chronicleId)?.title || e.chronicleId}</span></div>
+      `;
+      card.addEventListener("click", ()=>openEdition(e.id));
+      card.addEventListener("keydown", ev=>{ if(ev.key==="Enter") openEdition(e.id); });
+      grid.appendChild(card);
+    });
+  }
 
   const freeCard = document.createElement("article");
   freeCard.className = "card";
@@ -4787,6 +4899,28 @@ function openEdition(id){
       <div class="modal-section">
         <h4>Archive Note</h4>
         <p>${FREE_EDITION.note}</p>
+      </div>
+    `;
+    bindModal();
+    return;
+  }
+  const illus = illustratedEditionById(id);
+  if(illus){
+    const r = illus.regions[regionPref] || illus.regions.uk || illus.regions.us;
+    const regionLabel = illus.regions[regionPref] ? regionPref.toUpperCase() : Object.keys(illus.regions)[0].toUpperCase();
+    modalBody.innerHTML = `
+      <button class="modal-close" id="closeBtn" aria-label="Close">✕</button>
+      <p class="modal-kicker">${illus.label}</p>
+      <h2>${r.title}</h2>
+      <p class="modal-meta">${r.publisher}</p>
+      <a class="read-btn read-btn-external" href="${r.url}" target="_blank" rel="noopener noreferrer">Order via Bookshop.org (${regionLabel}) ↗</a>
+      <div class="modal-section">
+        <h4>Archive Note</h4>
+        <p>${illus.note}</p>
+      </div>
+      <div class="modal-section">
+        <h4>Chronicle Illustrated</h4>
+        <div class="xref-list"><button class="xref" data-story="${illus.chronicleId}">${storyById(illus.chronicleId)?.title || illus.chronicleId}</button></div>
       </div>
     `;
     bindModal();
