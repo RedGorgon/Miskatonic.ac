@@ -1079,6 +1079,9 @@
     text-decoration:underline; cursor:pointer; background:none; border:none; padding:0;
   }
   .correspondent-example-link:hover{ color:var(--verdigris); }
+  .watch-note{
+    font-size:12.5px; line-height:1.55; color:var(--ink-soft); font-style:italic; margin:0;
+  }
 </style>
 </head>
 <body>
@@ -3370,6 +3373,7 @@ const SCREEN_RECORDS = [
     chronicleIds:["call-of-cthulhu"],
     entityIds:["cthulhu"],
     imdbUrl:"https://www.imdb.com/title/tt0478988/",
+    watchUrl:"https://amzn.to/3Sxiuwa",
     note:"Produced silent, in black-and-white, under a process the production credits itself as 'Mythoscope' — full immersion in 1926 studio technique, framing, and cutting, rather than a modern film styled to look old. The result does not read as pastiche. Archive staff shown the negative without context have, on three separate occasions, filed it as recovered period footage before being corrected. No satisfactory account exists of how a 2005 production achieved that; the entry stays open pending one."
   },
   {
@@ -3394,6 +3398,7 @@ const SCREEN_RECORDS = [
     chronicleIds:["herbert-west-reanimator"],
     entityIds:["herbert-west"],
     imdbUrl:"https://www.imdb.com/title/tt0089885/",
+    watchUrl:"https://amzn.to/3SPaFSF",
     note:"The underlying record is accurate to an uncomfortable degree — a Miskatonic Medical School researcher, an illicit reagent, an escalating series of reanimations that stop obeying him. The tone, however, has been pushed hard toward splatter-comedy, gore played for laughs rather than dread. The Archive's working theory is that the shift was deliberate: an account this close to the file circulates more safely as a joke than it would taken at face value."
   },
   {
@@ -3406,6 +3411,7 @@ const SCREEN_RECORDS = [
     chronicleIds:["dunwich-horror"],
     entityIds:["wilbur-whateley"],
     imdbUrl:"https://www.imdb.com/title/tt0065669/",
+    watchUrl:"https://amzn.to/4hTNTTL",
     note:"The first adaptation to use the chronicle's real title outright, and the closest in tone to the file it draws from — a hill-town family, an unnatural birth, a summoning that very nearly succeeds. Nothing here needed scrubbing or discouraging; the Archive's own annotations suggest tacit non-interference with this one, on the theory that a straight telling, released as ordinary drive-in horror, does less damage than suppressing it would have."
   },
   {
@@ -3418,6 +3424,7 @@ const SCREEN_RECORDS = [
     chronicleIds:["whisperer-in-darkness"],
     entityIds:["mi-go"],
     imdbUrl:"https://www.imdb.com/title/tt1498878/",
+    watchUrl:"https://amzn.to/46qE4FU",
     note:"Shot in the Society's now-established period style — this time closer to a 1930s studio sound picture than the earlier production's silent format. The first two acts track the chronicle closely, down to the Vermont flood of 1927. The third does not: cultists, a gateway to Yuggoth, and an ending that seals the protagonist's brain into a cylinder rather than letting him escape. None of that appears in the published record. The Archive has stopped assuming it's simply invention."
   },
   {
@@ -3430,6 +3437,7 @@ const SCREEN_RECORDS = [
     chronicleIds:["from-beyond"],
     entityIds:["beyonder-entities"],
     imdbUrl:"https://www.imdb.com/title/tt0091083/",
+    watchUrl:"https://amzn.to/3UTTPCD",
     note:"The account survives largely intact — the Resonator, the pineal gland, the interdimensional predators sharing its field. What doesn't survive is the register: gore and sexual excess pushed hard enough that period reviewers treated the result as gross-out spectacle rather than horror. This is the same director's second production filed under this status (see also Re-Animator); the Archive now treats the pattern as house style rather than coincidence."
   },
   {
@@ -3526,6 +3534,7 @@ const SCREEN_RECORDS = [
     chronicleIds:["colour-out-of-space"],
     entityIds:["the-colour"],
     imdbUrl:"https://www.imdb.com/title/tt5073642/",
+    watchUrl:"https://amzn.to/3UkvTIr",
     note:"The record's second screen appearance (see also Die, Monster, Die!, 1965) — and this time nothing was swapped out. The colour stays the colour rather than becoming a radioactive meteorite, the town keeps its real name, and the case is simply moved forward to the present day rather than relocated somewhere safer. A fully financed, festival-distributed production got this close voluntarily, more than fifty years after the last attempt was scrubbed clean, and the Archive has no better explanation for it now than it did then."
   },
   {
@@ -3538,6 +3547,7 @@ const SCREEN_RECORDS = [
     chronicleIds:["the-outsider"],
     entityIds:["the-outsider-entity"],
     imdbUrl:"https://www.imdb.com/title/tt0112643/",
+    watchUrl:"https://amzn.to/4qz5Kln",
     note:"The chronicle's whole engine is sympathy — a thing kept in the dark long enough to become monstrous, meeting its own reflection for the first time. The production inverts that outright, recasting the confined figure as a straightforward antagonist in a family revenge plot and relocating the account from an unspecified dungeon to a leased Italian castle. This is the third title on file from this director (see also Re-Animator, From Beyond); the pattern of gutting a quieter horror into something louder and easier to dismiss is by now treated as house style rather than accident."
   },
   {
@@ -3562,6 +3572,7 @@ const SCREEN_RECORDS = [
     chronicleIds:["shadow-over-innsmouth"],
     entityIds:["deep-ones"],
     imdbUrl:"https://www.imdb.com/title/tt0478126/",
+    watchUrl:"https://amzn.to/4d36KZd",
     note:"Files under a production company calling itself Arkham NW, which is either a very good joke or a very bad one. The town itself never appears under its own name — the account is moved from the Massachusetts coast to the Pacific Northwest and restructured around a son returning home for a funeral, rather than the original's outside investigator passing through. The hereditary horror underneath is otherwise recognizable enough that the Archive filed it as a scrub rather than an unrelated story that happens to share a name."
   },
   {
@@ -3588,6 +3599,83 @@ const SCREEN_RECORDS = [
     imdbUrl:"https://www.imdb.com/title/tt0279688/",
     note:"The original account is a quiet one — a rural asylum inmate, a doctor who starts dreaming what the patient dreams, a mind that turns out not to be his own. The production relocates all of it to a considerably louder register: cortex probes, skull trephination, an intern's escalating experiments played for body-horror shock rather than the source's slow dread. Whatever discretion the case once had did not survive the adaptation."
   },
+  {
+    id:"bride-of-re-animator-1990",
+    title:"Bride of Re-Animator",
+    year:"1990",
+    director:"Brian Yuzna",
+    productionCompany:"Wild Street Pictures / Re-Animator II Productions",
+    status:"DECOY",
+    chronicleIds:["herbert-west-reanimator"],
+    entityIds:["herbert-west"],
+    imdbUrl:"https://www.imdb.com/title/tt0099180/",
+    watchUrl:"https://amzn.to/4gCyvsx",
+    note:"The second production on file to carry this case past its own ending — the account itself stops well short of a laboratory assembling a composite bride from salvaged remains. Same director as the 1985 film, same commitment to playing escalating reanimation horror for gross-out laughs rather than dread. The Archive no longer treats that pairing as coincidence."
+  },
+  {
+    id:"beyond-re-animator-2003",
+    title:"Beyond Re-Animator",
+    year:"2003",
+    director:"Brian Yuzna",
+    productionCompany:"Fantastic Factory / Castelao Producciones",
+    status:"DECOY",
+    chronicleIds:["herbert-west-reanimator"],
+    entityIds:["herbert-west"],
+    imdbUrl:"https://www.imdb.com/title/tt0222812/",
+    watchUrl:"https://amzn.to/46ArdAV",
+    note:"A third outing from the same director, relocating the reagent and its consequences to a prison medical ward the case file never mentions. The production company, Fantastic Factory, is the same Spanish house behind Dagon two years prior — one concrete link between two otherwise unconnected files. The tone hasn't shifted: splatter-comedy first, dread a distant second."
+  },
+  {
+    id:"the-dunwich-horror-2009",
+    title:"The Dunwich Horror",
+    year:"2009",
+    director:"Leigh Scott",
+    productionCompany:"Active Entertainment Finance / Bullet Films",
+    status:"SCRUBBED",
+    chronicleIds:["dunwich-horror"],
+    entityIds:["wilbur-whateley"],
+    imdbUrl:"https://www.imdb.com/title/tt1226752/",
+    note:"The case's second screen appearance, and considerably more attentive to Wilbur's own particulars — his premature growth, the true nature of his parentage — than the family resemblance to the 1970 film might suggest. What didn't survive the move is the geography: the account has been relocated wholesale from the Massachusetts hill country to Louisiana, with an invented quest for the Necronomicon standing in for the original's simpler theft. Lovecraft's name appears nowhere in the film's own credits."
+  },
+  {
+    id:"pickmans-model-2022",
+    title:"Pickman's Model",
+    year:"2022",
+    director:"Keith Thomas",
+    productionCompany:"Guillermo del Toro's Cabinet of Curiosities (Netflix) / Exile Entertainment / Double Dare You / De Milo Films",
+    status:"DECOY",
+    chronicleIds:["pickmans-model"],
+    entityIds:["pickman"],
+    imdbUrl:"https://www.imdb.com/title/tt15262250/",
+    watchPlatform:"Netflix",
+    note:"A second production on file, fifty-one years after the first (see Pickman's Model, 1971), and it makes the same choice under an anthology's different name — the chronicle's whole design is a single photograph doing all the damage by implication; this one puts the thing itself on screen, in full, legible view. An invented backstory pads out the narrator, unnamed in the chronicle but called Thurber here. The ending resolves into an ordinary tragedy rather than the original's deliberately unanswered question."
+  },
+  {
+    id:"dreams-in-witch-house-2022",
+    title:"Dreams in the Witch House",
+    year:"2022",
+    director:"Catherine Hardwicke",
+    productionCompany:"Guillermo del Toro's Cabinet of Curiosities (Netflix) / Exile Entertainment / Double Dare You / De Milo Films",
+    status:"UNACCOUNTED",
+    chronicleIds:["dreams-in-witch-house"],
+    entityIds:["keziah-mason","brown-jenkin"],
+    imdbUrl:"https://www.imdb.com/title/tt15262264/",
+    watchPlatform:"Netflix",
+    note:"The first screen record on file for this case. Gilman, Keziah Mason, Brown Jenkin, and the house itself all survive the trip intact, but around them the production builds an entire invented plot — a twin sister abducted years before, an ending in which Brown Jenkin's corpse animates and wears Gilman's body — with no basis anywhere in the published account. Less a scrub than a wholesale annex; no explanation for the addition appears in the production's own record."
+  },
+  {
+    id:"the-deep-ones-2020",
+    title:"The Deep Ones",
+    year:"2020",
+    director:"Chad Ferrin",
+    productionCompany:"Crappy World Films / Laurelwood Films / 123 Go Films / ILY Films",
+    status:"SCRUBBED",
+    chronicleIds:["shadow-over-innsmouth"],
+    entityIds:["deep-ones"],
+    imdbUrl:"https://www.imdb.com/title/tt11548850/",
+    watchUrl:"https://amzn.to/4x0gQBk",
+    note:"This case's second screen appearance (see also Cthulhu, 2007), and the account survives the move considerably more intact than the relocation might suggest — the production keeps the founding family's actual name, Marsh, on a cast list otherwise built around a present-day coastal rental rather than a 19th-century fishing port. Everything the name implies — the covenant, the interbreeding, the offspring owed to the sea — is played straight rather than softened. The Archive files the geography change as the scrub; the rest is closer to the record than comfortable."
+  },
 
   /* ---- Unfiled Occurrences ----
      A second, distinct grouping within the same array: films that dramatize
@@ -3608,6 +3696,7 @@ const SCREEN_RECORDS = [
     chronicleIds:[],
     entityIds:["cthulhu"],
     imdbUrl:"https://www.imdb.com/title/tt5774060/",
+    watchUrl:"https://amzn.to/4wIYa93",
     note:"No chronicle sits behind this one — the account is an invented deep-sea drilling disaster, nothing drawn from any case on file. What earns it a place here regardless is the thing surfacing in the final reel, and the director's own repeated, on-record confirmation outside the film that the creature is meant to be read as Cthulhu specifically, not a generic abyssal horror. The film itself never says the name. The Archive files the two facts — an unconnected production, and a specific identification volunteered afterward — side by side, without further comment on what the coincidence means."
   },
   {
@@ -3621,6 +3710,7 @@ const SCREEN_RECORDS = [
     chronicleIds:[],
     entityIds:[],
     imdbUrl:"https://www.imdb.com/title/tt0113409/",
+    watchUrl:"https://amzn.to/4xmAadd",
     note:"An invented account, not a case file on record here: a horror novelist whose books are read by millions, whose fiction turns out, over the course of the picture, to be substantially true, and whose readership begins reshaping itself around that fact well before anyone involved is prepared to admit it. The Archive notes only that this describes a situation it has spent considerable effort not becoming, and declines to elaborate further."
   },
   {
@@ -3634,6 +3724,7 @@ const SCREEN_RECORDS = [
     chronicleIds:[],
     entityIds:[],
     imdbUrl:"https://www.imdb.com/title/tt2798920/",
+    watchUrl:"https://amzn.to/4gsSTfM",
     note:"No entity or chronicle on file matches anything in this account directly, and nobody involved in its making has cited this Archive's subject matter as a source. The connection here is descent rather than citation, by way of the novel it adapts — itself part of a body of work openly written in a lineage running back through this Archive's own founding cases. Filed as the loosest connection this section allows: a shared cosmology and a shared refusal to explain itself, nothing more specific pinned down."
   },
   {
@@ -3647,6 +3738,7 @@ const SCREEN_RECORDS = [
     chronicleIds:[],
     entityIds:[],
     imdbUrl:"https://www.imdb.com/title/tt4255304/",
+    watchUrl:"https://amzn.to/4qA3aLV",
     note:"No specific chronicle or dossier behind this one, and the resemblance is atmospheric rather than pinned to a named case: a rural hospital, a robed cult, and geometry that shouldn't hold together the way it does. On record from one of the two directors: the production took shape while he was working at a studio one floor below an unrelated, never-completed Lovecraft adaptation, and has said outright that proximity is where the film's imagery came from. Filed on that basis, at the same general remove as the Archive's other tone-only occurrences."
   },
   {
@@ -3660,6 +3752,7 @@ const SCREEN_RECORDS = [
     chronicleIds:["colour-out-of-space"],
     entityIds:[],
     imdbUrl:"https://www.imdb.com/title/tt3986820/",
+    watchUrl:"https://amzn.to/4y1OozX",
     note:"An invented account — two brothers returning to the isolated commune they escaped years before, and finding whatever kept them there still active — with no dramatization of any chronicle on file. Unlike most entries in this section, the tie here isn't the Archive's own inference: one of the two directors has said on record that certain plot elements were loosely drawn from The Colour Out of Space specifically, by name, ahead of the film's release. Filed with that chronicle tagged accordingly — the first Unfiled Occurrence on record with a named source rather than a coincidence."
   },
   {
@@ -3673,6 +3766,7 @@ const SCREEN_RECORDS = [
     chronicleIds:[],
     entityIds:[],
     imdbUrl:"https://www.imdb.com/title/tt5867314/",
+    watchUrl:"https://amzn.to/3STS4or",
     note:"Adapted from an original comic, not from any case on file, and neither the director nor the comic's writer has gone on record naming this Archive's subject matter as an influence — on that count alone this entry sits on thinner ground than its neighbors above. What keeps it filed rather than dismissed is how consistently outside critics have independently reached for the same comparison anyway, describing its ancient, thought-borne intelligence and the cult built around it in terms usually reserved for this Archive's own case files. No confirmation, no denial, genuine disagreement among analysts about whether that's a real correspondence or an inherited house style of horror criticism. Filed pending further review, not as a settled call."
   },
   {
@@ -3686,7 +3780,64 @@ const SCREEN_RECORDS = [
     chronicleIds:[],
     entityIds:[],
     imdbUrl:"https://www.imdb.com/title/tt7984734/",
+    watchUrl:"https://amzn.to/3UTBohm",
     note:"On record from the director himself, named alongside M.R. James, Arthur Machen, Algernon Blackwood, and Poe as part of a shared reading he and his brother grew up on. He has said just as plainly, in the same breath, that he deliberately steered away from anything resembling this Archive's own explicit style, favoring suggestion over description. A named citation, then, but a qualified one — an acknowledged influence the production then spent real effort not resembling too closely. Nothing here pins to a single entity or chronicle: a glimpsed mermaid, a beached horror on the rocks, a forbidden light at the top of a tower that ends the man who finally reaches it. General enough to file at the same remove as the Archive's other tone-only occurrences."
+  },
+  {
+    id:"the-evil-dead-1981",
+    title:"Evil Dead",
+    year:"1981",
+    director:"Sam Raimi",
+    productionCompany:"Renaissance Pictures",
+    status:"CONSISTENT",
+    occurrenceType:"unfiled",
+    chronicleIds:[],
+    entityIds:[],
+    imdbUrl:"https://www.imdb.com/title/tt0083907/",
+    watchUrl:"https://amzn.to/4d859Bk",
+    note:"An invented account — five students, a remote cabin, a tape recording that should have stayed unplayed — with no chronicle behind it. What earns it a place here is the shape rather than any specific name: something ancient in the woods, roused by the reading aloud of a forbidden text bound in what the props department calls skin, and indifferent afterward to who it wears once it's in the room. The book itself isn't yet called what it becomes in this Archive's next entry (see Evil Dead II, 1987) — filed at the same general remove as the section's other tone-only occurrences, on the strength of the shape alone rather than a named borrowing."
+  },
+  {
+    id:"evil-dead-ii-1987",
+    title:"Evil Dead II",
+    year:"1987",
+    director:"Sam Raimi",
+    productionCompany:"Renaissance Pictures",
+    status:"UNACCOUNTED",
+    occurrenceType:"unfiled",
+    chronicleIds:[],
+    entityIds:[],
+    imdbUrl:"https://www.imdb.com/title/tt0092991/",
+    watchUrl:"https://amzn.to/4qJnHgQ",
+    note:"No chronicle behind this one, or its 1981 predecessor — the book at the center of both is an invented prop, not a dramatization of any case on file. What earns it a place in this section anyway is the name: in the original film the book is called the Naturom Demonto, ordinary invented Latin. This sequel renames it, on screen and by narration, the Necronomicon Ex-Mortis — adopting outright the actual name of the book this Archive keeps its own dedicated record of. No statement from the production explains the change between the two films. Filed as the closest thing in this section to a specific, named borrowing, rather than a tonal resemblance."
+  },
+  {
+    id:"the-cabin-in-the-woods-2012",
+    title:"The Cabin in the Woods",
+    year:"2012",
+    director:"Drew Goddard",
+    productionCompany:"Mutant Enemy / Lionsgate",
+    status:"DISPUTED",
+    occurrenceType:"unfiled",
+    chronicleIds:[],
+    entityIds:[],
+    imdbUrl:"https://www.imdb.com/title/tt1259521/",
+    watchUrl:"https://amzn.to/4xs73VB",
+    note:"An invented account of a ritual sacrifice staged to appease something enormous and ancient sleeping beneath the earth, its arrival in the final reel unmistakably in this Archive's own register despite never being named on screen. The resemblance is widely discussed by critics and academics; neither the director nor the credited writers have gone on record naming this Archive's subject matter as a source for any of it. Completed in 2009 and held back for nearly three years by a distributor's bankruptcy before release — the kind of delay this Archive is inclined to notice without further comment. Filed pending further review rather than as a settled call."
+  },
+  {
+    id:"the-viewing-2022",
+    title:"The Viewing",
+    year:"2022",
+    director:"Panos Cosmatos",
+    productionCompany:"Guillermo del Toro's Cabinet of Curiosities (Netflix) / Exile Entertainment / Double Dare You / De Milo Films",
+    status:"CONSISTENT",
+    occurrenceType:"unfiled",
+    chronicleIds:[],
+    entityIds:[],
+    imdbUrl:"https://www.imdb.com/title/tt15262254/",
+    watchPlatform:"Netflix",
+    note:"An invented account — a reclusive collector, a private gathering, an object recovered from somewhere well outside ordinary geography — with no dramatization of any case on file behind it. What it shares with several files in this Archive is the shape of the thing itself: contact with the object doesn't summon a monster so much as it unmakes the people in the room, methodically and without any interest in them as individuals. No statement on record ties this episode specifically to any chronicle here, but the anthology's own curator has spent decades publicly citing this Archive's subject matter as a lifelong influence. Filed at the same general remove as this section's other tone-only entries."
   }
 ];
 
@@ -3694,6 +3845,15 @@ function screenRecordById(id){ return SCREEN_RECORDS.find(r=>r.id===id); }
 function screenRecordsForChronicle(storyId){ return SCREEN_RECORDS.filter(r=>(r.chronicleIds||[]).includes(storyId)); }
 function screenRecordsForEntity(entityId){ return SCREEN_RECORDS.filter(r=>(r.entityIds||[]).includes(entityId)); }
 function screenRecordKicker(r){ return (r.occurrenceType === "unfiled" ? "Unfiled Occurrence" : "Screen Record") + " · " + r.year; }
+function whereToWatchHtml(r){
+  if(r.watchUrl){
+    return `<a class="read-btn read-btn-external" href="${r.watchUrl}" target="_blank" rel="noopener noreferrer">Where to Watch ↗</a>`;
+  }
+  if(r.watchPlatform){
+    return `<p class="watch-note">Currently streaming on ${r.watchPlatform}.</p>`;
+  }
+  return `<p class="watch-note">This print has been withdrawn from circulation in certain territories. No explanation is on file for the restriction.</p>`;
+}
 
 /* ============ FIELD REFERENCE LIBRARY ============
    Real, in-print (or freely available) editions that collect the chronicles
@@ -4550,6 +4710,10 @@ function openScreenRecord(id){
     <div class="modal-section">
       <h4>Archive Note</h4>
       <p>${r.note}</p>
+    </div>
+    <div class="modal-section">
+      <h4>Where to Watch</h4>
+      ${whereToWatchHtml(r)}
     </div>
     <div class="modal-section">
       <h4>Chronicles on File</h4>
