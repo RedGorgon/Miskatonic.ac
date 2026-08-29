@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inside a Complete Case File — The Miskatonic Archive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Spectral:ital,wght@0,500;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep:#060b09; --parchment:#e9e1c9; --fog:#c7d3cb; --fog-dim:#7f938a;
+    --verdigris:#7fa08a; --verdigris-dim:#4d6a58; --rust:#8a3f2e; --gold:#b3903f;
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(127,160,138,0.09), transparent 60%),
+      radial-gradient(ellipse 700px 600px at 100% 10%, rgba(138,63,46,0.07), transparent 55%),
+      var(--bg-deep);
+    font-family:'Spectral', Georgia, serif; color:var(--fog);
+    padding:56px 20px 90px;
+  }
+  .wrap{ max-width:900px; margin:0 auto; text-align:center; }
+  .kicker{
+    font-family:'Space Mono', monospace; font-size:11px; letter-spacing:0.22em;
+    text-transform:uppercase; color:var(--verdigris); margin:0 0 14px;
+  }
+  h1{
+    font-family:'IM Fell English SC', serif; font-size:clamp(28px,4vw,44px);
+    color:var(--parchment); margin:0 0 16px; letter-spacing:0.01em;
+  }
+  .lead{
+    font-style:italic; color:var(--fog-dim); font-size:15px; line-height:1.6;
+    max-width:640px; margin:0 auto 40px;
+  }
+  .frame{
+    display:block; width:100%; max-width:720px; margin:0 auto 36px;
+    box-shadow:0 30px 70px rgba(0,0,0,0.6), 0 0 0 1px rgba(233,225,201,0.08);
+  }
+  .frame img{ display:block; width:100%; height:auto; }
+  .actions{ display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-bottom:44px; }
+  .btn{
+    font-family:'Space Mono', monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase;
+    padding:13px 26px; text-decoration:none; display:inline-block; transition:opacity .15s ease;
+  }
+  .btn:hover{ opacity:0.85; }
+  .btn-primary{ background:var(--rust); color:var(--parchment); }
+  .btn-secondary{ background:transparent; border:1px solid var(--verdigris-dim); color:var(--verdigris); }
+  .note{
+    max-width:600px; margin:0 auto; font-family:'Space Mono', monospace; font-size:11.5px;
+    color:var(--fog-dim); line-height:1.8; border-top:1px solid rgba(127,160,138,0.18); padding-top:24px;
+  }
+  .note a{ color:var(--gold); }
+  @media (max-width:560px){
+    .actions{ flex-direction:column; align-items:stretch; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker">The Miskatonic Archive &middot; Special Collections</p>
+  <h1>Inside a Complete Case File</h1>
+  <p class="lead">Every case file reproduces the chronicle's complete text in full &mdash; not an excerpt &mdash; alongside its provenance, chronology, and dossier pages. Below: a genuine sample of that layout, drawn from across the Archive's shipped case files, with names, dates and passages redacted.</p>
+
+  <div class="frame">
+    <img src="images/inside-a-complete-case-file.png" alt="A scattered collage of real pages from a Miskatonic Archive case file — cover, provenance, chronology, dossier and locality entries, primary-source text, and closing cross-reference, with some passages redacted.">
+  </div>
+
+  <div class="actions">
+    <a class="btn btn-primary" href="https://ko-fi.com/themiskatonicarchive" target="_blank" rel="noopener noreferrer">Become a Patron ↗</a>
+    <a class="btn btn-secondary" href="index.html">&larr; Back to the Archive</a>
+  </div>
+
+  <p class="note">Complete case files are a patron perk of the Archive's recurring Ko-fi tier, and are also available individually &mdash; see each chronicle's own "Request Case File" link. Every copy includes a blank bookplate to sign by hand once printed; no name is taken at checkout.</p>
+</div>
+</body>
+</html>
