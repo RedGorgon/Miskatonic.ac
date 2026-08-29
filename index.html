@@ -1082,9 +1082,58 @@
   .watch-note{
     font-size:12.5px; line-height:1.55; color:var(--ink-soft); font-style:italic; margin:0;
   }
+  .cookie-consent{
+    position:fixed; left:0; right:0; bottom:0; z-index:500;
+    background:var(--panel); border-top:1px solid var(--line);
+    box-shadow:var(--shadow);
+    padding:16px 20px;
+  }
+  .cookie-consent-inner{
+    max-width:920px; margin:0 auto;
+    display:flex; flex-wrap:wrap; align-items:center; gap:16px;
+    justify-content:space-between;
+  }
+  .cookie-consent-inner p{
+    margin:0; flex:1 1 420px; font-size:13px; line-height:1.6; color:var(--fog);
+  }
+  .cookie-consent-actions{
+    display:flex; gap:10px; flex-shrink:0;
+  }
+  .cookie-btn{
+    font-family:'Space Mono', monospace; font-size:12px; letter-spacing:0.4px;
+    padding:9px 18px; border-radius:2px; cursor:pointer; border:1px solid var(--line);
+    background:transparent; color:var(--fog);
+  }
+  .cookie-btn-solid{
+    background:var(--verdigris-dim); border-color:var(--verdigris-dim); color:var(--parchment);
+  }
+  .cookie-btn-ghost:hover{ border-color:var(--fog-dim); color:var(--parchment); }
+  .cookie-btn-solid:hover{ background:var(--verdigris); }
+  .cookie-prefs-tab{
+    position:fixed; left:16px; bottom:16px; z-index:400;
+    font-family:'Space Mono', monospace; font-size:10.5px; letter-spacing:0.4px;
+    background:var(--panel); color:var(--fog-dim); border:1px solid var(--line);
+    padding:6px 10px; border-radius:2px; cursor:pointer; opacity:0.75;
+  }
+  .cookie-prefs-tab:hover{ opacity:1; color:var(--parchment); }
+  @media (max-width: 640px){
+    .cookie-consent-inner{ flex-direction:column; align-items:stretch; }
+    .cookie-consent-actions{ justify-content:flex-end; }
+  }
 </style>
 </head>
 <body>
+
+<div id="cookieConsent" class="cookie-consent" role="dialog" aria-label="Cookie consent" hidden>
+  <div class="cookie-consent-inner">
+    <p>This Archive uses Google Analytics to keep a quiet record of which files draw visitors' attention. No correspondent is identified by it. Decline and the Archive keeps no record of your visit at all.</p>
+    <div class="cookie-consent-actions">
+      <button id="cookieDecline" class="cookie-btn cookie-btn-ghost" type="button">Decline</button>
+      <button id="cookieAccept" class="cookie-btn cookie-btn-solid" type="button">Accept</button>
+    </div>
+  </div>
+</div>
+<button id="cookiePrefsTab" class="cookie-prefs-tab" type="button" hidden>Cookie Preferences</button>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -3852,7 +3901,7 @@ function whereToWatchHtml(r){
   if(r.watchPlatform){
     return `<p class="watch-note">Currently streaming on ${r.watchPlatform}.</p>`;
   }
-  return `<p class="watch-note">This print has been withdrawn from circulation in certain territories. No explanation is on file for the restriction.</p>`;
+  return `<p class="watch-note">This reel has been withdrawn from circulation in certain territories. No explanation is on file for the restriction.</p>`;
 }
 
 /* ============ FIELD REFERENCE LIBRARY ============
@@ -5605,6 +5654,67 @@ STORY_ART["shadow-out-of-time"] = `
     <circle cx="176" cy="33" r="4.5" fill="currentColor"/>
   </g>
 </svg>`;
+
+/* ============ GOOGLE ANALYTICS (consent-gated) ============
+   GA is never loaded until the visitor accepts the cookie banner (or has
+   previously accepted it), per UK GDPR/PECR practice for non-essential
+   analytics cookies. */
+const GA_MEASUREMENT_ID = "G-GPVH3MS575"; // real GA4 Measurement ID, added Aug 29 2026
+const COOKIE_CONSENT_KEY = "miskatonic-cookie-consent"; // "granted" | "denied"
+
+function loadGoogleAnalytics(){
+  if(window._gaLoaded || !GA_MEASUREMENT_ID || GA_MEASUREMENT_ID.indexOf("XXXXXXXXXX") !== -1) return;
+  window._gaLoaded = true;
+  const s = document.createElement("script");
+  s.async = true;
+  s.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ window.dataLayer.push(arguments); }
+  window.gtag = gtag;
+  gtag("js", new Date());
+  gtag("config", GA_MEASUREMENT_ID, { anonymize_ip: true });
+}
+
+function getCookieConsent(){
+  try{ return localStorage.getItem(COOKIE_CONSENT_KEY); }catch(e){ return null; }
+}
+function setCookieConsent(value){
+  try{ localStorage.setItem(COOKIE_CONSENT_KEY, value); }catch(e){}
+}
+
+function initCookieConsent(){
+  const banner = document.getElementById("cookieConsent");
+  const prefsTab = document.getElementById("cookiePrefsTab");
+  const acceptBtn = document.getElementById("cookieAccept");
+  const declineBtn = document.getElementById("cookieDecline");
+  if(!banner || !prefsTab || !acceptBtn || !declineBtn) return;
+
+  function showBanner(){ banner.hidden = false; prefsTab.hidden = true; }
+  function hideBanner(){ banner.hidden = true; prefsTab.hidden = false; }
+
+  const consent = getCookieConsent();
+  if(consent === "granted"){
+    loadGoogleAnalytics();
+    hideBanner();
+  } else if(consent === "denied"){
+    hideBanner();
+  } else {
+    showBanner();
+  }
+
+  acceptBtn.addEventListener("click", ()=>{
+    setCookieConsent("granted");
+    loadGoogleAnalytics();
+    hideBanner();
+  });
+  declineBtn.addEventListener("click", ()=>{
+    setCookieConsent("denied");
+    hideBanner();
+  });
+  prefsTab.addEventListener("click", showBanner);
+}
+initCookieConsent();
 </script>
 </body>
 </html>
