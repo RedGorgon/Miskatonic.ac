@@ -1036,6 +1036,60 @@
     margin:0;
   }
 
+  /* ---------- Header "Write to the Archive" link ---------- */
+  .header-contact-link{
+    display:inline-block;
+    margin:14px 0 0;
+    font-family:'Space Mono', monospace;
+    font-size:11.5px;
+    letter-spacing:0.05em;
+    color:var(--verdigris-dim);
+    text-decoration:underline;
+    background:none; border:none; padding:0; cursor:pointer;
+  }
+  .header-contact-link:hover, .header-contact-link:focus-visible{ color:var(--verdigris); }
+
+  /* ---------- Contact / correspondence form ---------- */
+  .contact-intro{
+    font-style:italic; font-size:14.5px; line-height:1.65;
+    color:var(--ink-soft); text-align:center;
+    border-top:1px solid rgba(32,29,22,0.15);
+    border-bottom:1px solid rgba(32,29,22,0.15);
+    padding:16px 6px; margin:0 0 22px;
+  }
+  .contact-form{ display:flex; flex-direction:column; gap:16px; }
+  .contact-field{ display:flex; flex-direction:column; gap:6px; }
+  .contact-field span{
+    font-family:'Space Mono', monospace; font-size:11px; letter-spacing:0.05em;
+    text-transform:uppercase; color:var(--ink-soft);
+  }
+  .contact-field span small{ text-transform:none; letter-spacing:0; font-style:italic; }
+  .contact-field input, .contact-field textarea{
+    font-family:'Spectral', serif; font-size:15px; color:var(--ink);
+    background:rgba(255,255,255,0.35);
+    border:1px solid rgba(32,29,22,0.3);
+    border-radius:2px;
+    padding:10px 12px;
+    resize:vertical;
+  }
+  .contact-field input:focus, .contact-field textarea:focus{
+    outline:none; border-color:var(--rust);
+  }
+  .contact-submit-btn{
+    display:block; text-align:center; width:100%;
+    margin:2px 0 0; border:none;
+  }
+  .contact-submit-btn:disabled{ opacity:0.6; cursor:default; }
+  .contact-status{
+    font-family:'Space Mono', monospace; font-size:12px; text-align:center;
+    color:var(--ink-soft); margin:0;
+  }
+  .contact-status-error{ color:var(--rust); }
+  .contact-status-success{
+    font-style:italic; font-family:'Spectral', serif; font-size:15px;
+    color:var(--ink); text-align:center; padding:20px 6px;
+  }
+
   /* ---------- Excerpt Reader End / Case File CTA ---------- */
   .ms-endstamp{ text-align:center; margin:46px 0 26px; }
   .ms-endstamp-mark{
@@ -1200,6 +1254,7 @@
       </div>
     </div>
     <p class="count-note" id="countNote"></p>
+    <button class="header-contact-link" id="contactArchiveBtn">Write to the Archive — suggestions &amp; corrections ↗</button>
   </div>
 </header>
 
@@ -5015,6 +5070,14 @@ function closeModal(){
   overlay.classList.remove("open");
 }
 
+/* ---------- Write to the Archive (contact form) ----------
+   Backed by Formspree (or any compatible form-relay service). To activate:
+   1. Create a free account at formspree.io (or similar) and make a new form.
+   2. Copy that form's endpoint (looks like https://formspree.io/f/xxxxxxxx).
+   3. Paste it in below, replacing the placeholder. Until then, the form shows
+      visitors a polite "not connected yet" message instead of failing silently. */
+const CONTACT_FORM_ENDPOINT = "https://formspree.io/f/xzebdqzy";
+
 /* ---------- Contribute to the Archive ---------- */
 const KOFI_URL = "https://ko-fi.com/themiskatonicarchive";
 
@@ -5063,6 +5126,68 @@ function openContribute(){
     <a class="read-btn contribute-cta" href="${KOFI_URL}" target="_blank" rel="noopener noreferrer">Make a Contribution ↗</a>
   `;
   bindModal();
+}
+
+function openContact(){
+  modalBody.innerHTML = `
+    <button class="modal-close" id="closeBtn" aria-label="Close">✕</button>
+    <p class="modal-kicker" style="text-align:center;">Field Correspondence · Miskatonic Archive</p>
+    <h2 style="text-align:center;">Write to the Archive</h2>
+    <p class="contact-intro">Spotted an error, missing a favourite chronicle, or an idea for something the Archive should hold? Correspondence is always read, even where a reply isn't possible.</p>
+    <form id="contactForm" class="contact-form">
+      <label class="contact-field">
+        <span>Name <small>(optional)</small></span>
+        <input type="text" name="name" autocomplete="name">
+      </label>
+      <label class="contact-field">
+        <span>Return Address <small>(optional — leave blank to remain anonymous)</small></span>
+        <input type="email" name="email" autocomplete="email" placeholder="you@example.com">
+      </label>
+      <label class="contact-field">
+        <span>Report</span>
+        <textarea name="message" rows="5" required placeholder="Your idea, correction, or suggestion…"></textarea>
+      </label>
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <input type="hidden" name="_subject" value="New correspondence — The Miskatonic Archive">
+      <button type="submit" class="read-btn contact-submit-btn">File Report ↗</button>
+      <p class="contact-status" id="contactStatus" role="status" aria-live="polite"></p>
+    </form>
+  `;
+  bindModal();
+  bindContactForm();
+}
+
+function bindContactForm(){
+  const form = document.getElementById("contactForm");
+  const status = document.getElementById("contactStatus");
+  form.addEventListener("submit", async (e)=>{
+    e.preventDefault();
+    if(CONTACT_FORM_ENDPOINT.includes("XXXXXXXX")){
+      status.textContent = "The Archive's correspondence line isn't connected yet — please try again soon.";
+      status.classList.add("contact-status-error");
+      return;
+    }
+    const btn = form.querySelector(".contact-submit-btn");
+    btn.disabled = true;
+    btn.textContent = "Filing…";
+    status.textContent = "";
+    status.classList.remove("contact-status-error");
+    try{
+      const res = await fetch(CONTACT_FORM_ENDPOINT, {
+        method:"POST",
+        headers:{ "Accept":"application/json" },
+        body:new FormData(form)
+      });
+      if(!res.ok) throw new Error("Request failed");
+      modalBody.querySelector(".contact-form").outerHTML =
+        `<p class="contact-status-success">Filed. Thank you, correspondent — your report has reached the Archive.</p>`;
+    } catch(err){
+      status.textContent = "The report couldn't be filed just now — please try again shortly.";
+      status.classList.add("contact-status-error");
+      btn.disabled = false;
+      btn.textContent = "File Report ↗";
+    }
+  });
 }
 
 /* ---------- Manuscript Reader ---------- */
@@ -5207,6 +5332,7 @@ overlay.addEventListener("click", e=>{ if(e.target === overlay) closeModal(); })
 document.addEventListener("keydown", e=>{ if(e.key === "Escape" && !lightboxOverlay.classList.contains("open")) closeModal(); });
 
 document.getElementById("contributeSealBtn").addEventListener("click", openContribute);
+document.getElementById("contactArchiveBtn").addEventListener("click", openContact);
 
 document.querySelectorAll(".tab-btn").forEach(btn=>{
   btn.addEventListener("click", ()=>{
