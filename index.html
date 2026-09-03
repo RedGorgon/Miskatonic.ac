@@ -449,6 +449,11 @@
     height:auto;
     border:1px solid rgba(32,29,22,0.28);
     filter: sepia(0.55) saturate(1.15) contrast(1.08) brightness(0.94);
+    cursor:zoom-in;
+    transition:filter 0.18s ease;
+  }
+  .art-plate .story-photo:hover{
+    filter: sepia(0.4) saturate(1.25) contrast(1.1) brightness(1.04);
   }
   .art-plate .art-caption{
     font-family:'Space Mono', monospace;
@@ -4696,9 +4701,11 @@ function storyArtworkHtml(s){
   return `
     <div class="art-plate">
       <img class="story-photo" src="${photoPath}" alt="Illustration for ${s.title}"
-        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        data-lightbox-caption="${s.title.replace(/"/g,"&quot;")}"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+        onclick="openLightbox(this.src, this.dataset.lightboxCaption)">
       <div class="story-photo-fallback" style="display:none;">${fallbackInner}</div>
-      <p class="art-caption">Fig. — ${s.title}</p>
+      <p class="art-caption">Fig. — ${s.title} <span class="art-caption-hint">(click to enlarge)</span></p>
     </div>
   `;
 }
@@ -4732,9 +4739,11 @@ function locationArtworkHtml(l){
   return `
     <div class="art-plate">
       <img class="story-photo" src="${photoPath}" alt="Illustration of ${l.name}"
-        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        data-lightbox-caption="${l.name.replace(/"/g,"&quot;")}"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+        onclick="openLightbox(this.src, this.dataset.lightboxCaption)">
       <div class="story-photo-fallback" style="display:none;">${fallbackInner}</div>
-      <p class="art-caption">Fig. — ${l.name}</p>
+      <p class="art-caption">Fig. — ${l.name} <span class="art-caption-hint">(click to enlarge)</span></p>
     </div>
   `;
 }
@@ -4745,9 +4754,11 @@ function screenRecordArtworkHtml(r){
   return `
     <div class="art-plate">
       <img class="story-photo" src="${photoPath}" alt="Card art for ${r.title}"
-        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        data-lightbox-caption="${r.title.replace(/"/g,"&quot;")} (${r.year})"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+        onclick="openLightbox(this.src, this.dataset.lightboxCaption)">
       <div class="story-photo-fallback" style="display:none;">${fallbackInner}</div>
-      <p class="art-caption">Fig. — ${r.title} (${r.year})</p>
+      <p class="art-caption">Fig. — ${r.title} (${r.year}) <span class="art-caption-hint">(click to enlarge)</span></p>
     </div>
   `;
 }
@@ -4758,9 +4769,11 @@ function necronomiconArtworkHtml(){
   return `
     <div class="art-plate necro-cover">
       <img class="story-photo" src="${photoPath}" alt="Cover depiction of the Necronomicon"
-        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        data-lightbox-caption="The Necronomicon"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+        onclick="openLightbox(this.src, this.dataset.lightboxCaption)">
       <div class="story-photo-fallback" style="display:none;">${fallbackInner}</div>
-      <p class="art-caption">Fig. — Cover, as rendered by frightened witnesses (no two descriptions agree)</p>
+      <p class="art-caption">Fig. — Cover, as rendered by frightened witnesses (no two descriptions agree) <span class="art-caption-hint">(click to enlarge)</span></p>
     </div>
   `;
 }
